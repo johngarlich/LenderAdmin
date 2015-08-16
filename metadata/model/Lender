@@ -1,0 +1,190 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Lender",
+        "field": null
+    },
+    "designerId": "10b72db8-25bb-4270-b256-e2721ed77ae1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "field",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lenderId"
+            },
+            "designerId": "becfc99c-69e0-4115-b7c8-fffd840b85f2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "f3845255-f65e-4cbc-a7a3-fb4aa237bc17"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lenderState"
+            },
+            "designerId": "8fe6b1a3-da29-4eae-86ad-0923baa11349"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "street"
+            },
+            "designerId": "a09b0a38-9d77-4dcc-bb07-1e604fce2419"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "street2"
+            },
+            "designerId": "bbaffae8-cc94-44fd-8c95-efe9757ac417"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fullStreet"
+            },
+            "designerId": "b9cac311-a555-488d-ad43-d754c42e70d0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "city"
+            },
+            "designerId": "7cabc2c6-3e31-4809-a583-a10156ca5648"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "state"
+            },
+            "designerId": "41cb5a4f-892b-4d47-9cbe-908c90baf702"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "zipcode"
+            },
+            "designerId": "1fa6e01c-9d1e-4c2a-9074-cd85f08ce46b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "phone"
+            },
+            "designerId": "99e36ddb-3974-41ef-899d-6fe85af37582"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "csz"
+            },
+            "designerId": "bf834961-de9d-478f-a1a6-a004b7e66c9b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dealerIds"
+            },
+            "designerId": "0eef1d38-9fa9-48b3-b0be-10e8284a7944"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "_id"
+            },
+            "designerId": "d6b6b0ce-ca94-4805-b276-f8fd08f9cfda"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "financeType"
+            },
+            "designerId": "c636ec8d-ddf7-4636-81d7-de6364d3fb75"
+        }
+    ]
+}

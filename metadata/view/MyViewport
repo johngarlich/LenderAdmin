@@ -1,0 +1,609 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "border"
+    },
+    "designerId": "e11696d8-2c5e-4f7f-8ed6-fc1369f4bcb9",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "lendersfrm",
+                "layout|region": "center",
+                "title": "Lenders"
+            },
+            "designerId": "c51c00fd-6c45-44c1-a448-ecf3ecb3cec6",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "e36eb9cb-7f30-415b-8eee-460033c725b5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "lenderId",
+                                "fieldLabel": "lenderId",
+                                "itemId": "lenderIdcbo",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "lenderId",
+                                "queryMode": "local",
+                                "store": "Lenders",
+                                "typeAheadDelay": 100,
+                                "width": 312
+                            },
+                            "designerId": "1497e50b-37c4-4968-8a9a-3c236e42cf77"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "lenderName",
+                                "labelWidth": 75,
+                                "margin": "0 5 0 5",
+                                "name": "name",
+                                "width": 299
+                            },
+                            "designerId": "b025879e-27af-4204-b268-f1116e951a73"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "lenderState",
+                                "labelWidth": 75,
+                                "margin": "0 5 0 5",
+                                "name": "lenderState",
+                                "store": [
+                                    "[",
+                                    "    \"KS\",",
+                                    "    \"MO\",",
+                                    "    \"TX\"",
+                                    "]"
+                                ],
+                                "width": 134
+                            },
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "b3fbe40a-8f92-4ae5-97c9-af43e81565ac"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "financeType",
+                                "labelWidth": 75,
+                                "margin": "0 5 0 5",
+                                "name": "financeType",
+                                "store": [
+                                    "[",
+                                    "    \"finance\",",
+                                    "    \"lease\"",
+                                    "]"
+                                ],
+                                "width": 191
+                            },
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "c8ef0bbd-f81a-4e80-8f0e-5f1172345561"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "fd2203b7-b0b6-4f31-bd30-46d139ced42e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "street",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "street",
+                                "width": 312
+                            },
+                            "designerId": "4aad3f3c-9953-4924-af39-0a0037310414"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "street2",
+                                "itemId": "street2txt",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "street2",
+                                "width": 245
+                            },
+                            "designerId": "5e967ff5-930b-4709-baa1-da69009d8637"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "fullStreet",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "fullStreet",
+                                "readOnly": true,
+                                "width": 393
+                            },
+                            "designerId": "ecaba78b-5461-4788-a855-941e391fa01c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "3736f3d7-30b4-4e33-8951-f0fb25ca70c8",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "city",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "city",
+                                "width": 312
+                            },
+                            "designerId": "fa1ba6eb-ff69-4206-9a3d-592745324f4a"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "state",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "state",
+                                "width": 134
+                            },
+                            "designerId": "88949c5d-f8a8-4e85-baca-940ad4203c1d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "zipcode",
+                                "itemId": "zipcodetxt",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "zipcode",
+                                "width": 157
+                            },
+                            "designerId": "14ab1fee-7a60-4390-b6af-5109edb83b65"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "phone",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "phone",
+                                "width": 211
+                            },
+                            "designerId": "d03af25a-3682-4f59-807a-5915d776d403"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "designer|displayName": null,
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "4441dd30-f1d1-4a01-9ab2-8abcc4c8fdb3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "csz",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "csz",
+                                "width": 311
+                            },
+                            "designerId": "537b05bc-1836-4617-a979-0d3354cc0e65"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "mongoId",
+                                "labelWidth": 55,
+                                "margin": "0 5 0 5",
+                                "name": "mongoId",
+                                "width": 311
+                            },
+                            "designerId": "8c7bf9ef-5c46-4a86-b2e9-37b7918b8f59"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "designer|displayName": null,
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "60f6ec0e-c427-4263-b348-dc37f1e9dca3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "reservePercentage",
+                                "margin": "0 5 0 5",
+                                "maxValue": 1,
+                                "minValue": 0,
+                                "name": "reservePercentage",
+                                "width": 311
+                            },
+                            "designerId": "b6497bac-5ce4-4674-a6c6-e0ff62d65a9b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "lendersDealerId",
+                                "margin": "0 5 0 5",
+                                "name": "lendersDealerId",
+                                "width": 311
+                            },
+                            "designerId": "d5e07cbf-2d03-45b6-99f3-cabfe055239a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "mongoIdLD",
+                                "margin": "0 5 0 5",
+                                "name": "mongoIdLD",
+                                "width": 311
+                            },
+                            "designerId": "705d3924-1ae9-4931-aba4-5a992d497038"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "height": 36,
+                        "layout": "hbox"
+                    },
+                    "designerId": "5a18014b-7858-4da6-b29b-4c6da423dde1",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "dealerId",
+                                "fieldLabel": "dealerIds",
+                                "labelWidth": 55,
+                                "layout|flex": null,
+                                "margin": "0 5 0 5",
+                                "multiSelect": true,
+                                "name": "dealerIds",
+                                "queryMode": "local",
+                                "store": "DealerIds"
+                            },
+                            "designerId": "02355b66-45c3-4c10-bfc5-7f62a09f2e9f"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "addDealerIdToDealerIdsGrid",
+                                "layout|flex": null,
+                                "text": "Add dealerId to this lender"
+                            },
+                            "designerId": "455b8d05-807b-4d93-89d2-91018fa160f5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "store": "DealerIdsGrid",
+                        "title": "Dealers assigned to this lender in this lenderState",
+                        "width": 1019
+                    },
+                    "designerId": "568b032e-a90b-4a41-8195-2dd0654d99e4",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "2ab8aa0d-cb99-4c74-a9d1-a6f5c0c2cf94"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "dealerId",
+                                "text": "DealerId",
+                                "width": 201
+                            },
+                            "designerId": "59770d3f-37a7-4817-8796-25e0fab3defa"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "designerId": "fc135b90-948c-41fe-9119-0e64b32955df",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "text": "Remove this dealer from this lender in this lenderState"
+                                    },
+                                    "designerId": "526cc791-14b2-47a3-ad45-960197a2ab11"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "designerId": "8d6cf709-beae-4a87-9737-24ff99ca858f",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "clearFieldsbtn",
+                                "layout|flex": null,
+                                "text": "Clear fields to Add New Lender"
+                            },
+                            "designerId": "b4f568e6-674a-480f-848c-a48014b2a441"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "updatebtn",
+                                "layout|flex": null,
+                                "text": "Update this record"
+                            },
+                            "designerId": "becafe3d-6d50-4ebe-934d-6c7908a40119"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "State Filter",
+                                "itemId": "stateFiltercbo",
+                                "labelWidth": 70,
+                                "layout|flex": null,
+                                "name": "filterState",
+                                "store": [
+                                    "[\"KS\",\"MO\",\"TX\"]"
+                                ],
+                                "value": [
+                                    "\"KS\""
+                                ],
+                                "width": 129
+                            },
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "a4658b7e-282a-4d99-b390-e5c262073fa3"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "changeStatebtn",
+                                "layout|flex": null,
+                                "text": "Change State"
+                            },
+                            "designerId": "d1620396-9cdf-499f-87d6-b0b57d661c5d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "deletebtn",
+                                "layout|flex": null,
+                                "text": "Delete this record"
+                            },
+                            "designerId": "c635e5b1-5e7e-452c-9879-c4626d488994"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

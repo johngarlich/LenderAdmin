@@ -1,0 +1,30 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "Base",
+            "MongoCalls"
+        ],
+        "models": [
+            "DealerId",
+            "Lender",
+            "LenderDealer"
+        ],
+        "name": "LenderAdmin",
+        "stores": [
+            "DealerIds",
+            "DealersWithLender",
+            "Lenders",
+            "DealerIdsGrid"
+        ],
+        "views": [
+            "MyViewport"
+        ]
+    },
+    "designerId": "application"
+}

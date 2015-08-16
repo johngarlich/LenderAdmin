@@ -1,0 +1,86 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LenderDealer"
+    },
+    "designerId": "aa2a1afe-dd85-454f-8b37-bb5f492ccc05",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lenderId"
+            },
+            "designerId": "ed7a35f8-343b-442f-afb1-8603bb1f7a24"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dealerId"
+            },
+            "designerId": "9d8b86d0-cfa0-4670-a628-3b06c7835228"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lendersDealerId"
+            },
+            "designerId": "413e5a3e-d1c9-49cc-9ca3-233c55e48edf"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "reservePercentage"
+            },
+            "designerId": "0275ce09-6c76-455f-ac65-e8576f0d4747"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "financeType"
+            },
+            "designerId": "eeee81fd-1857-47ee-9287-c13c62d0c272"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "_id"
+            },
+            "designerId": "0eefa1b8-685c-44fc-a8ad-1ded29a7d632"
+        }
+    ]
+}

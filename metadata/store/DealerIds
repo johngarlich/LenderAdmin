@@ -1,0 +1,40 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "DealerIds",
+        "model": "DealerId",
+        "storeId": "DealerIds"
+    },
+    "designerId": "7d199dd3-b290-4e5c-a703-0ba37518cf6f",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/dealerIds.json"
+            },
+            "designerId": "216d50fa-6df6-4d2f-aef2-e7225c39240f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "4642921b-f2d2-4a23-be2d-804ba86ef436"
+                }
+            ]
+        }
+    ]
+}

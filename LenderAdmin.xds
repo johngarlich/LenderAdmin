@@ -1,0 +1,63 @@
+{
+    "name": "LenderAdmin",
+    "settings": {
+        "cmd": {
+            "license": "custom",
+            "cmdVersion": "4.0.4.84",
+            "frameworkOverride": "/Users/johngarlich/bin/Sencha/Complete/1.0.5.1/ext-4.2.2.1144"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/LenderAdmin",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1321-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1371-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "e11696d8-2c5e-4f7f-8ed6-fc1369f4bcb9"
+        ],
+        "store": [
+            "7d199dd3-b290-4e5c-a703-0ba37518cf6f",
+            "0107e10b-830c-4d52-8858-92854daf388d",
+            "422be7be-0761-4926-87d9-0358dca306a5",
+            "ccc93452-4de0-4610-bd49-68fca2954e26"
+        ],
+        "controller": [
+            "46e17e39-73a4-4b2d-97ad-9e8b7da316f8",
+            "2e630136-c544-4319-b276-4875fb631dd4"
+        ],
+        "model": [
+            "4ca24d19-2066-4bdc-93a2-f824725d0f44",
+            "10b72db8-25bb-4270-b256-e2721ed77ae1",
+            "aa2a1afe-dd85-454f-8b37-bb5f492ccc05"
+        ],
+        "resource": [
+            "33553d41-839e-4f35-804d-0ca0ce525aa4",
+            "9e027125-9ec6-477b-8317-49675eb87d6f",
+            "6eb6828e-0fdd-4f47-a4c8-8390c1befe35",
+            "af1623ee-99c1-4a38-867d-5ada153f0583"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

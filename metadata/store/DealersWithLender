@@ -1,0 +1,40 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "DealersWithLender",
+        "model": "DealerId",
+        "storeId": "DealersWithLender"
+    },
+    "designerId": "422be7be-0761-4926-87d9-0358dca306a5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/dealerIds.json"
+            },
+            "designerId": "2cb76c75-806d-4f17-8a31-e91a5b6bac71",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "08b1729b-3af5-424c-bc3f-823d5120dcae"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,413 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MongoCalls"
+    },
+    "designerId": "2e630136-c544-4319-b276-4875fb631dd4",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getAllLenders",
+                "implHandler": [
+                    "var collectionName = \"lenders\";",
+                    "var mongoCall      = \"getDocs\";",
+                    "var lenderState    = Ext.ComponentQuery.query('#stateFiltercbo')[0].getValue();",
+                    "var query          = {\"lenderState\":lenderState};",
+                    "var store          = Ext.getStore('Lenders');",
+                    "store.removeAll();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/\" + mongoCall,",
+                    "    success: function(response,err){",
+                    "        var docsArray = JSON.parse(response.responseText);",
+                    "        store = Ext.getStore(\"Lenders\");",
+                    "        Ext.Array.forEach(docsArray,function(item,index,self){",
+                    "            store.add(item);",
+                    "        });",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"wasn't able to get docs from collection \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"query\"      :JSON.stringify(query),",
+                    "        \"collectionS\":collectionName",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "6849a480-14cc-41a6-8244-72f8380f040b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#lenderIdcbo",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onLenderIdcboSelect",
+                "implHandler": [
+                    "",
+                    "var form = Ext.ComponentQuery.query('#lendersfrm')[0];",
+                    "form.getForm().setValues(records[0].data);",
+                    "// you have to set the _id field to mongoId",
+                    "Ext.ComponentQuery.query('field[name=mongoId]')[0].setValue(records[0].data._id);",
+                    "",
+                    "// set the store values for dealerId",
+                    "// load the dealerIds into the grid",
+                    "var dealers = records[0].data.dealerIds;",
+                    "var dealerId  = {};",
+                    "var dealerIds = [];",
+                    "Ext.Array.forEach(dealers, function(item,index,self){",
+                    "    dealerId = {",
+                    "        dealerId:item",
+                    "    };",
+                    "    dealerIds.push(dealerId);",
+                    "});",
+                    "store = Ext.getStore('DealerIdsGrid');",
+                    "store.loadData(dealerIds);",
+                    "",
+                    "// make a mongo call to get the matching reservePercentage and lendersDealerId if it exists",
+                    "this.getReservePercentageAndLendersDealerId();"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "241bc5f9-3016-4206-985b-24f728605a50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#updatebtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onUpdatebtnClick",
+                "implHandler": [
+                    "// calc updateDoc",
+                    "var updateDoc = Ext.ComponentQuery.query('#lendersfrm')[0].getForm().getValues();",
+                    "delete updateDoc.mongoIdLD;",
+                    "delete updateDoc.reservePercentage;",
+                    "delete updateDoc.lendersDealerId;",
+                    "delete updateDoc.filterState;",
+                    "delete updateDoc.dealerIds;",
+                    "delete updateDoc.mongoId;",
+                    "",
+                    "var dealerIds = [];",
+                    "var store = Ext.getStore('DealerIdsGrid');",
+                    "var values = store.data.items;",
+                    "Ext.Array.forEach(values, function(item,index,self){",
+                    "    dealerIds.push(item.data.dealerId);",
+                    "});",
+                    "updateDoc.dealerIds = dealerIds;",
+                    "// calc queryDoc",
+                    "var lenderId    = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();",
+                    "var dealerId    = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
+                    "var financeType = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();",
+                    "if(!lenderId || !dealerId || !financeType){",
+                    "    alert('you have to fill out lenderId, dealerId and financeType otherwise you cannot save a record');",
+                    "    return;",
+                    "}",
+                    "var queryDoc = {",
+                    "    lenderId   :lenderId,",
+                    "    dealerIds  :dealerId,",
+                    "    financeType:financeType",
+                    "};",
+                    "",
+                    "// set collectionName",
+                    "var collectionName = \"lenders\";",
+                    "",
+                    "// set mongoCall",
+                    "var mongoCall = \"upsertDoc\";",
+                    "",
+                    "this.upsertLenderRecord(collectionName,queryDoc,updateDoc,mongoCall);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "a325491c-05ab-4da9-81e2-3abcdd448b48"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#lendersfrm",
+                "designer|targetType": "Ext.form.Panel",
+                "fn": "onLendersfrmAfterRender",
+                "implHandler": [
+                    "this.getAllLenders();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "7020d763-fea8-46ff-ba56-51fbe9d6ff61"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#stateFiltercbo",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onStateFiltercboChange",
+                "implHandler": [
+                    "this.getAllLenders();"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "2cfe1da0-78b2-435f-88bf-c8f182844ad1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#lenderIdcbo",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onLenderIdcboExpand",
+                "implHandler": [
+                    "debugger;",
+                    "this.getAllLenders();"
+                ],
+                "name": "expand",
+                "scope": "me"
+            },
+            "designerId": "3b5ebfd6-9838-4c50-95f1-3c59f4e47eef"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getReservePercentageAndLendersDealerId",
+                "implHandler": [
+                    "var collectionName = \"lenderDealer\";",
+                    "var mongoCall      = \"getDocs\";",
+                    "// create query",
+                    "var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
+                    "dealerId = dealerId[0];",
+                    "var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();",
+                    "var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();",
+                    "var query          = {\"dealerId\":dealerId,\"lenderId\":lenderId,\"financeType\":financeType};",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/\" + mongoCall,",
+                    "    success: function(response,err){",
+                    "        var docsArray = JSON.parse(response.responseText);",
+                    "",
+                    "        var doc = docsArray[0];",
+                    "        if(Ext.isDefined(doc)){",
+                    "            Ext.ComponentQuery.query('field[name=reservePercentage]')[0].setValue(doc.reservePercentage);",
+                    "            Ext.ComponentQuery.query('field[name=lendersDealerId]')[0].setValue(doc.lendersDealerId);",
+                    "            Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].setValue(doc._id);",
+                    "            debugger;",
+                    "        }",
+                    "        else {",
+                    "",
+                    "            Ext.ComponentQuery.query('field[name=reservePercentage]')[0].setValue(\"\");",
+                    "            Ext.ComponentQuery.query('field[name=lendersDealerId]')[0].setValue(\"\");",
+                    "            Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].setValue(\"\");",
+                    "            alert('there is no lenderDealer record matching this lender');",
+                    "        }",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"wasn't able to get docs from collection \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"query\"      :JSON.stringify(query),",
+                    "        \"collectionS\":collectionName",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "8daafdb0-a99c-4db0-a98d-efadbc6f0994"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "collectionName",
+                    "queryDoc",
+                    "updateDoc",
+                    "mongoCall"
+                ],
+                "fn": "upsertLenderRecord",
+                "implHandler": [
+                    "var scope = this;",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/\"+mongoCall,",
+                    "    success: function(response,err){",
+                    "        debugger;",
+                    "        if (response.responseText==\"true\"){",
+                    "            alert(\"upserted the document\");",
+                    "        }",
+                    "        //upsert the lenderDealerRecord",
+                    "        scope.upsertLenderDealerRecord();",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"No upsert\");",
+                    "    },",
+                    "    method: 'POST',",
+                    "    params: {",
+                    "        \"collectionS\":collectionName,",
+                    "        \"updateDoc\"  :JSON.stringify(updateDoc),",
+                    "        \"queryDoc\"   :JSON.stringify(queryDoc)",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "61c8655f-a0c2-478e-8b85-7decccdc1724"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "upsertLenderDealerRecord",
+                "implHandler": [
+                    "var collectionName = \"lenderDealer\";",
+                    "var mongoCall      = \"upsertDoc\";",
+                    "var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
+                    "dealerId = dealerId[0];",
+                    "var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();",
+                    "var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();",
+                    "var query          = {\"dealerId\":dealerId,\"lenderId\":lenderId,\"financeType\":financeType};",
+                    "",
+                    "var updateDoc = {",
+                    "    lenderId:lenderId,",
+                    "    financeType:financeType,",
+                    "    dealerId:dealerId,",
+                    "    reservePercentage:Ext.ComponentQuery.query(\"field[name=reservePercentage]\")[0].getValue(),",
+                    "    lendersDealerId  :Ext.ComponentQuery.query(\"field[name=lendersDealerId]\")[0].getValue()",
+                    "};",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/\" + mongoCall,",
+                    "    success: function(response,err){",
+                    "        alert(\"upserted the lenderDealerRecord\");",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"wasn't able to upsert the lenderDealer record\");",
+                    "    },",
+                    "    method: 'POST',",
+                    "    params: {",
+                    "        \"queryDoc\"   :JSON.stringify(query),",
+                    "        \"collectionS\":collectionName,",
+                    "        \"updateDoc\"  :JSON.stringify(updateDoc)",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "3c38ac0f-9baa-4b9e-b1cc-1687281dbb24"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#deletebtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onDeletebtnClick",
+                "implHandler": [
+                    "var mongoId = Ext.ComponentQuery.query('field[name=mongoId]')[0].getValue();",
+                    "if(!mongoId){",
+                    "    alert(\"you can't delete a record that doesn't exist in mongo\");",
+                    "}",
+                    "else {",
+                    "    this.deleteRecord(mongoId,\"lenders\",\"deleteDoc\");",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "cc87ec4d-707d-4e20-8ddd-4648f209e1d0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "mongoId",
+                    "collectionName",
+                    "mongoCall"
+                ],
+                "fn": "deleteRecord",
+                "implHandler": [
+                    "var scope = this;",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/\" + mongoCall,",
+                    "    success: function(response,err){",
+                    "        var value = JSON.parse(response.responseText);",
+                    "        debugger;",
+                    "        var mongoIdLD = Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].getValue();",
+                    "        if(mongoIdLD){",
+                    "            scope.deleteRecord(mongoIdLD,\"lenderDealer\",\"deleteDoc\");",
+                    "        }",
+                    "        debugger;",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"wasn't able to delete doc from collection: \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"mongoId\"    :mongoId,",
+                    "        \"collectionS\":collectionName",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "44639aaf-07e3-4e97-864d-1f1948228782"
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Base"
+    },
+    "designerId": "46e17e39-73a4-4b2d-97ad-9e8b7da316f8",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#street2txt",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onStreet2txtBlur",
+                "implHandler": [
+                    "var street  = Ext.ComponentQuery.query('field[name=street]')[0].getValue();",
+                    "var street2 = Ext.ComponentQuery.query('field[name=street2]')[0].getValue();",
+                    "var fullStreet = street + \" \" + street2;",
+                    "Ext.ComponentQuery.query('field[name=fullStreet]')[0].setValue(fullStreet);"
+                ],
+                "name": "blur",
+                "scope": "me"
+            },
+            "designerId": "bfb9c511-6901-494f-8377-ed9af72056fb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#zipcodetxt",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onZipcodetxtBlur",
+                "implHandler": [
+                    "var city     = Ext.ComponentQuery.query('field[name=city]')[0].getValue();",
+                    "var state    = Ext.ComponentQuery.query('field[name=state]')[0].getValue();",
+                    "var zipcode  = Ext.ComponentQuery.query('field[name=zipcode]')[0].getValue();",
+                    "var csz      = city + \" \" + state + \" \" + zipcode;",
+                    "Ext.ComponentQuery.query('field[name=csz]')[0].setValue(csz);"
+                ],
+                "name": "blur",
+                "scope": "me"
+            },
+            "designerId": "4ee7511e-5d58-4b99-8627-a32fed982b5d"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "nodeJsService    = \"http://localhost:3000/\";",
+                    "socket           = io('http://localhost:3030');"
+                ]
+            },
+            "designerId": "19ee1d78-2c0e-47c7-bf1c-dd9a389e26ec"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#clearFieldsbtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onClearFieldsbtnClick",
+                "implHandler": [
+                    "debugger;",
+                    "// clear all of the fields except the stateFiltercbo.  You need to",
+                    "// have a value in the stateFiltercbo otherwise you want get any values",
+                    "// for lenderIds when you expand the combobox as it is filtered by the state that is chosen",
+                    "var value = Ext.ComponentQuery.query('#stateFiltercbo')[0].getValue();",
+                    "var form = Ext.ComponentQuery.query('#lendersfrm')[0];",
+                    "var selector = \"#\"+form.itemId + \" textfield\";",
+                    "var myFields = Ext.ComponentQuery.query(selector);",
+                    "Ext.Array.forEach(myFields,function(item,index,self){",
+                    "    item.setValue(\"\");",
+                    "});",
+                    "Ext.ComponentQuery.query('#stateFiltercbo')[0].setValue(value);",
+                    "var store = Ext.getStore('DealerIdsGrid');",
+                    "store.removeAll();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "dabbf172-98cb-4c9e-b881-ce66fd67c67e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#changeStatebtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onChangeStatebtnClick",
+                "implHandler": [
+                    "// clear mongoId, dealerIds and then change state",
+                    "var state  = Ext.ComponentQuery.query(\"#stateFiltercbo\")[0];",
+                    "var state2 = Ext.ComponentQuery.query('field[name=lenderState]')[0];",
+                    "var value = state.value;",
+                    "if (value==\"MO\"){state.setValue(\"KS\");state2.setValue(\"KS\");}",
+                    "if (value==\"KS\"){state.setValue(\"MO\");state2.setValue(\"MO\");}",
+                    "",
+                    "Ext.ComponentQuery.query('field[name=dealerIds]')[0].setValue(\"\");",
+                    "Ext.ComponentQuery.query('field[name=mongoId]')[0].setValue(\"\");",
+                    "var store = Ext.getStore('DealerIdsGrid');",
+                    "store.removeAll();",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "842941ab-2d85-4714-a31c-baac66fc21b2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addDealerIdToDealerIdsGrid",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onAddDealerIdToDealerIdsGridClick",
+                "implHandler": [
+                    "store = Ext.getStore('DealerIdsGrid');",
+                    "var dealerIds = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
+                    "var dealerId = dealerIds[0];",
+                    "store.add({dealerId:dealerId});"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "574b97b1-1061-4ef7-aa3a-86bf8d82d07e"
+        }
+    ]
+}

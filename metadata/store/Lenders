@@ -1,0 +1,48 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Lenders",
+        "model": "Lender",
+        "storeId": "Lenders"
+    },
+    "designerId": "ccc93452-4de0-4610-bd49-68fca2954e26",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "ff8cdf0d-2dc0-4c4b-80f7-870f67dd0892",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "3c1a44d9-50e6-4966-9454-b6a03ca4cb16"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "lenderId"
+            },
+            "designerId": "44bda3fd-147e-4987-9d41-a5f9641a3948"
+        }
+    ]
+}
