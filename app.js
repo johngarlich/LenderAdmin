@@ -23,13 +23,18 @@ Ext.application({
     models: [
         'DealerId',
         'Lender',
-        'LenderDealer'
+        'LenderDealer',
+        'FormRequirement',
+        'FormType',
+        'Form'
     ],
     stores: [
         'DealerIds',
         'DealersWithLender',
         'Lenders',
-        'DealerIdsGrid'
+        'DealerIdsGrid',
+        'FormRequirements',
+        'FormTypes'
     ],
     views: [
         'MyViewport'

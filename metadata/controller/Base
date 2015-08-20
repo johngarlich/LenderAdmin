@@ -149,14 +149,41 @@
                 "fn": "onAddDealerIdToDealerIdsGridClick",
                 "implHandler": [
                     "store = Ext.getStore('DealerIdsGrid');",
-                    "var dealerIds = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
-                    "var dealerId = dealerIds[0];",
+                    "var dealerId = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
+                    "",
                     "store.add({dealerId:dealerId});"
                 ],
                 "name": "click",
                 "scope": "me"
             },
             "designerId": "574b97b1-1061-4ef7-aa3a-86bf8d82d07e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeDealerFromGridbtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onRemoveDealerFromGridbtnClick",
+                "implHandler": [
+                    "var grid = Ext.ComponentQuery.query('#dealersgrd')[0];",
+                    "var selections = grid.getSelectionModel().getSelection();",
+                    "",
+                    "var store = Ext.getStore('DealerIdsGrid');",
+                    "for (i=0;i<selections.length;i++){",
+                    "    var index = grid.store.indexOf(selections[i]);",
+                    "    store.removeAt(index);",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "78f83f1e-0dfa-467e-be55-438102e260f0"
         }
     ]
 }

@@ -18,13 +18,14 @@ Ext.define('LenderAdmin.view.MyViewport', {
 
     requires: [
         'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Number',
-        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.toolbar.Toolbar'
+        'Ext.selection.CheckboxModel'
     ],
 
     layout: 'border',
@@ -40,6 +41,48 @@ Ext.define('LenderAdmin.view.MyViewport', {
                     itemId: 'lendersfrm',
                     bodyPadding: 10,
                     title: 'Lenders',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    itemId: 'clearFieldsbtn',
+                                    text: 'Clear fields to Add New Lender'
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'updatebtn',
+                                    text: 'Update this record'
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    itemId: 'stateFiltercbo',
+                                    width: 129,
+                                    fieldLabel: 'State Filter',
+                                    labelWidth: 70,
+                                    name: 'filterState',
+                                    value: 'KS',
+                                    store: [
+                                        'KS',
+                                        'MO',
+                                        'TX'
+                                    ]
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'changeStatebtn',
+                                    text: 'Change State'
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'deletebtn',
+                                    text: 'Delete this record'
+                                }
+                            ]
+                        }
+                    ],
                     items: [
                         {
                             xtype: 'container',
@@ -250,7 +293,6 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                     labelWidth: 55,
                                     name: 'dealerIds',
                                     displayField: 'dealerId',
-                                    multiSelect: true,
                                     queryMode: 'local',
                                     store: 'DealerIds'
                                 },
@@ -262,70 +304,176 @@ Ext.define('LenderAdmin.view.MyViewport', {
                             ]
                         },
                         {
-                            xtype: 'gridpanel',
-                            width: 1019,
-                            title: 'Dealers assigned to this lender in this lenderState',
-                            store: 'DealerIdsGrid',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    width: 201,
-                                    dataIndex: 'dealerId',
-                                    text: 'DealerId'
-                                }
-                            ],
-                            dockedItems: [
-                                {
-                                    xtype: 'toolbar',
-                                    dock: 'top',
-                                    items: [
-                                        {
-                                            xtype: 'button',
-                                            text: 'Remove this dealer from this lender in this lenderState'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    dockedItems: [
-                        {
-                            xtype: 'toolbar',
-                            dock: 'top',
+                            xtype: 'container',
+                            height: 600,
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
                             items: [
                                 {
-                                    xtype: 'button',
-                                    itemId: 'clearFieldsbtn',
-                                    text: 'Clear fields to Add New Lender'
+                                    xtype: 'gridpanel',
+                                    itemId: 'dealersgrd',
+                                    width: 181,
+                                    title: 'Dealers assigned to this lender in this lenderState',
+                                    store: 'DealerIdsGrid',
+                                    columns: [
+                                        {
+                                            xtype: 'gridcolumn',
+                                            width: 138,
+                                            dataIndex: 'dealerId',
+                                            text: 'DealerId'
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    itemId: 'removeDealerFromGridbtn',
+                                                    text: 'Remove checked Dealers'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    selModel: Ext.create('Ext.selection.CheckboxModel', {
+
+                                    })
                                 },
                                 {
-                                    xtype: 'button',
-                                    itemId: 'updatebtn',
-                                    text: 'Update this record'
-                                },
-                                {
-                                    xtype: 'combobox',
-                                    itemId: 'stateFiltercbo',
-                                    width: 129,
-                                    fieldLabel: 'State Filter',
-                                    labelWidth: 70,
-                                    name: 'filterState',
-                                    value: 'KS',
-                                    store: [
-                                        'KS',
-                                        'MO',
-                                        'TX'
+                                    xtype: 'form',
+                                    flex: 1,
+                                    bodyPadding: 10,
+                                    title: 'Required Core Forms for this lender',
+                                    items: [
+                                        {
+                                            xtype: 'container',
+                                            height: 46,
+                                            margin: '0 5 0 5',
+                                            layout: {
+                                                type: 'hbox',
+                                                align: 'middle'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'combobox',
+                                                    margin: '0 5 0 5',
+                                                    fieldLabel: 'formType',
+                                                    labelWidth: 60,
+                                                    name: 'formType',
+                                                    displayField: 'name',
+                                                    queryMode: 'local',
+                                                    store: 'FormTypes'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    margin: '0 5 0 5',
+                                                    width: 253,
+                                                    fieldLabel: 'publicName',
+                                                    labelWidth: 75,
+                                                    name: 'publicName'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    margin: '0 5 0 5',
+                                                    width: 217,
+                                                    fieldLabel: 'formId',
+                                                    labelWidth: 40,
+                                                    name: 'formId'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    margin: '0 5 0 5',
+                                                    width: 244,
+                                                    fieldLabel: 'template Guid',
+                                                    labelWidth: 60,
+                                                    name: 'templateGuid'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    margin: '0 5 0 5',
+                                                    width: 244,
+                                                    fieldLabel: 'mongoId',
+                                                    labelWidth: 60,
+                                                    name: 'templateGuid'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'gridpanel',
+                                            height: 389,
+                                            itemId: 'formRequirementsgrd',
+                                            title: 'Required Form Types and FormIds',
+                                            store: 'FormRequirements',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 115,
+                                                    dataIndex: 'formType',
+                                                    text: 'FormType'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 174,
+                                                    dataIndex: 'publicName',
+                                                    text: 'PublicName'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 177,
+                                                    dataIndex: 'formId',
+                                                    text: 'FormId'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 182,
+                                                    dataIndex: 'templateGuid',
+                                                    text: 'TemplateGuid'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 201,
+                                                    dataIndex: '_id',
+                                                    text: '_id'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Clear Fields to Add New Form'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Update this record'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Delete this form from Requirements'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    itemId: 'memoLenderid',
+                                                    fieldLabel: 'LenderId',
+                                                    labelWidth: 50
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    itemId: 'memoState',
+                                                    width: 80,
+                                                    fieldLabel: 'State',
+                                                    labelWidth: 30
+                                                }
+                                            ]
+                                        }
                                     ]
-                                },
-                                {
-                                    xtype: 'button',
-                                    itemId: 'changeStatebtn',
-                                    text: 'Change State'
-                                },
-                                {
-                                    xtype: 'button',
-                                    itemId: 'deletebtn',
-                                    text: 'Delete this record'
                                 }
                             ]
                         }

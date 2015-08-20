@@ -13,14 +13,19 @@
         "models": [
             "DealerId",
             "Lender",
-            "LenderDealer"
+            "LenderDealer",
+            "FormRequirement",
+            "FormType",
+            "Form"
         ],
         "name": "LenderAdmin",
         "stores": [
             "DealerIds",
             "DealersWithLender",
             "Lenders",
-            "DealerIdsGrid"
+            "DealerIdsGrid",
+            "FormRequirements",
+            "FormTypes"
         ],
         "views": [
             "MyViewport"

@@ -62,14 +62,15 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var lenderId    = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();
         var dealerId    = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
         var financeType = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();
-        if(!lenderId || !dealerId || !financeType){
-            alert('you have to fill out lenderId, dealerId and financeType otherwise you cannot save a record');
+        var lenderState = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();
+        if(!lenderId || !dealerId || !financeType || !lenderState){
+            alert('you have to fill out lenderId, dealerId, lenderState and financeType otherwise you cannot save a record');
             return;
         }
         var queryDoc = {
             lenderId   :lenderId,
-            dealerIds  :dealerId,
-            financeType:financeType
+            financeType:financeType,
+            lenderState:lenderState
         };
 
         // set collectionName
@@ -91,7 +92,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
     },
 
     onLenderIdcboExpand: function(field, eOpts) {
-        debugger;
+
         this.getAllLenders();
     },
 
@@ -154,7 +155,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
                     Ext.ComponentQuery.query('field[name=reservePercentage]')[0].setValue(doc.reservePercentage);
                     Ext.ComponentQuery.query('field[name=lendersDealerId]')[0].setValue(doc.lendersDealerId);
                     Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].setValue(doc._id);
-                    debugger;
+
                 }
                 else {
 
@@ -204,7 +205,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var collectionName = "lenderDealer";
         var mongoCall      = "upsertDoc";
         var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
-        dealerId = dealerId[0];
+        dealerId           = dealerId[0];
         var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();
         var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();
         var query          = {"dealerId":dealerId,"lenderId":lenderId,"financeType":financeType};
@@ -257,6 +258,34 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
                 "collectionS":collectionName
             }
         });
+    },
+
+    getLenderFormRequirements: function() {
+        var collectionName = "formRequirements";
+        var mongoCall      = "getDocs";
+        var lenderState    = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();
+        var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();
+        var query          = {"lenderState":lenderState, lenderId:lenderId};
+        var store          = Ext.getStore('FormRequirements');
+        store.removeAll();
+
+        Ext.Ajax.request({
+            url: nodeJsService + "collection/" + mongoCall,
+            success: function(response,err){
+                var docsArray = JSON.parse(response.responseText);
+                store = Ext.getStore("FormRequirements");
+                store.loadData(docsArray);
+            },
+            failure: function(response,err){
+                alert("wasn't able to get docs from collection " + collectionName);
+            },
+            method: 'GET',
+            params: {
+                "query"      :JSON.stringify(query),
+                "collectionS":collectionName
+            }
+        });
+
     },
 
     init: function(application) {

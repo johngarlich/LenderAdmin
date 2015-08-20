@@ -6,11 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Lenders",
-        "model": "Lender",
-        "storeId": "Lenders"
+        "autoLoad": true,
+        "designer|userClassName": "FormTypes",
+        "model": "FormType",
+        "storeId": "FormTypes"
     },
-    "designerId": "ccc93452-4de0-4610-bd49-68fca2954e26",
+    "designerId": "86834152-bc74-4541-a9cb-20a9937a7cae",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -20,9 +21,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "http://localhost/collection/getDocs"
+                "url": "data/formTypes.json"
             },
-            "designerId": "ff8cdf0d-2dc0-4c4b-80f7-870f67dd0892",
+            "designerId": "d4141726-ddac-409f-9b66-3b8c457606db",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -31,7 +32,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "3c1a44d9-50e6-4966-9454-b6a03ca4cb16"
+                    "designerId": "08236730-6667-469e-8498-6aa124291a48"
                 }
             ]
         },
@@ -43,9 +44,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "property": "lenderId"
+                "property": "name"
             },
-            "designerId": "44bda3fd-147e-4987-9d41-a5f9641a3948"
+            "designerId": "35d39625-3506-4443-90e2-c928fe664fc2"
         }
     ]
 }

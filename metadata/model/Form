@@ -1,0 +1,86 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Form"
+    },
+    "designerId": "af50b50a-ce5d-46b4-9d51-928098e9e915",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "formCategory"
+            },
+            "designerId": "4fd8b495-9e14-4913-b945-1858c14e7878"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "formType"
+            },
+            "designerId": "fc8d236f-16ef-4d60-96aa-520ad2ddbe47"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "formId"
+            },
+            "designerId": "9a62f4cf-1a7a-4375-a5d5-8109091c4a76"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "publicName"
+            },
+            "designerId": "b7b2fe86-7f6f-42a2-8b97-fe7a80b89e5c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "templateGuid"
+            },
+            "designerId": "6a05c1e0-ae85-41ad-88c9-747e0f6d69f2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "_id"
+            },
+            "designerId": "4c3740a1-23cf-4d5a-9a29-115f8d957ae1"
+        }
+    ]
+}

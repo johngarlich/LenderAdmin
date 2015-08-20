@@ -65,9 +65,21 @@ Ext.define('LenderAdmin.controller.Base', {
 
     onAddDealerIdToDealerIdsGridClick: function(button, e, eOpts) {
         store = Ext.getStore('DealerIdsGrid');
-        var dealerIds = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
-        var dealerId = dealerIds[0];
+        var dealerId = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
+
         store.add({dealerId:dealerId});
+    },
+
+    onRemoveDealerFromGridbtnClick: function(button, e, eOpts) {
+        var grid = Ext.ComponentQuery.query('#dealersgrd')[0];
+        var selections = grid.getSelectionModel().getSelection();
+
+        var store = Ext.getStore('DealerIdsGrid');
+        for (i=0;i<selections.length;i++){
+            var index = grid.store.indexOf(selections[i]);
+            store.removeAt(index);
+        }
+
     },
 
     init: function(application) {
@@ -89,6 +101,9 @@ Ext.define('LenderAdmin.controller.Base', {
             },
             "#addDealerIdToDealerIdsGrid": {
                 click: this.onAddDealerIdToDealerIdsGridClick
+            },
+            "#removeDealerFromGridbtn": {
+                click: this.onRemoveDealerFromGridbtnClick
             }
         });
     }
