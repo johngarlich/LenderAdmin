@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "FormRequirements",
+        "designer|userClassName": "Forms",
         "model": "Form",
-        "storeId": "FormRequirements"
+        "storeId": "Forms"
     },
-    "designerId": "84a97121-7f13-494d-86ab-20083389562e",
+    "designerId": "9f9f6e13-ebd2-4001-b70f-e40dc8f02486",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -20,9 +20,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "http://localhost/collection/getDocs"
+                "url": "http://localhost:3000/collection/getDocs"
             },
-            "designerId": "16f79724-ebd6-408b-b6df-020e05e9f025",
+            "designerId": "cd72653c-6660-4943-923f-2604ed67eea2",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -31,7 +31,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "4b56e97d-d9fe-477b-ac76-271cd935bab5"
+                    "designerId": "799a5d67-9ffb-4187-af0f-dc5e15b97fca"
                 }
             ]
         }

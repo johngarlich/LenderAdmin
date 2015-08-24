@@ -85,6 +85,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
 
     onLendersfrmAfterRender: function(component, eOpts) {
         this.getAllLenders();
+        //this.getAllForms();
     },
 
     onStateFiltercboChange: function(field, newValue, oldValue, eOpts) {
@@ -104,6 +105,11 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         else {
             this.deleteRecord(mongoId,"lenders","deleteDoc");
         }
+    },
+
+    onRefreshFormsListbtnClick: function(button, e, eOpts) {
+        Ext.ComponentQuery.query('#formTypeFiltercbo')[0].setValue("");
+        this.getAllForms();
     },
 
     getAllLenders: function() {
@@ -129,6 +135,39 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             method: 'GET',
             params: {
                 "query"      :JSON.stringify(query),
+                "collectionS":collectionName
+            }
+        });
+
+    },
+
+    getAllForms: function() {
+        var collectionName = "forms";
+        var query          = {};
+        query              = JSON.stringify(query);
+        debugger;
+        var store          = Ext.getStore('Forms');
+        store.removeAll();
+        this.getAllDocs(collectionName,query,store);
+
+    },
+
+    getAllDocs: function(collectionName, query, store) {
+        scope = this;
+        Ext.Ajax.request({
+            url: nodeJsService + "collection/getDocs",
+            success: function(response,err){
+                var docsArray = JSON.parse(response.responseText);
+                debugger;
+                store.clearFilter();
+                store.loadData(docsArray);
+            },
+            failure: function(response,err){
+                alert("wasn't able to get docs from collection " + collectionName);
+            },
+            method: 'GET',
+            params: {
+                "query"      :query,
                 "collectionS":collectionName
             }
         });
@@ -305,6 +344,9 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             },
             "#deletebtn": {
                 click: this.onDeletebtnClick
+            },
+            "#refreshFormsListbtn": {
+                click: this.onRefreshFormsListbtnClick
             }
         });
     }

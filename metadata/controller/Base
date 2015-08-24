@@ -184,6 +184,71 @@
                 "scope": "me"
             },
             "designerId": "78f83f1e-0dfa-467e-be55-438102e260f0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#formTypeFiltercbo",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onFormTypeFiltercboSelect",
+                "implHandler": [
+                    "var store = Ext.getStore('Forms');",
+                    "store.clearFilter();",
+                    "debugger;",
+                    "store.filter([",
+                    "    {property:\"formType\",value:records[0].data.name}",
+                    "]);"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "83466093-0627-4964-9a72-d621037ebf33"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#formsListgrd",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onFormsListgrdSelect",
+                "implHandler": [
+                    "debugger;",
+                    "var store = Ext.getStore('FormRequirements');",
+                    "store.add(record.data);"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "39fe466c-af03-43dc-b840-812289f09119"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeRequirementbtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onRemoveRequirementbtnClick",
+                "implHandler": [
+                    "var store = Ext.getStore('FormRequirements');",
+                    "debugger;"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "ca6d5429-89dd-4bc1-a6b0-246a3aaf8ad3"
         }
     ]
 }

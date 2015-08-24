@@ -82,6 +82,26 @@ Ext.define('LenderAdmin.controller.Base', {
 
     },
 
+    onFormTypeFiltercboSelect: function(combo, records, eOpts) {
+        var store = Ext.getStore('Forms');
+        store.clearFilter();
+        debugger;
+        store.filter([
+            {property:"formType",value:records[0].data.name}
+        ]);
+    },
+
+    onFormsListgrdSelect: function(rowmodel, record, index, eOpts) {
+        debugger;
+        var store = Ext.getStore('FormRequirements');
+        store.add(record.data);
+    },
+
+    onRemoveRequirementbtnClick: function(button, e, eOpts) {
+        var store = Ext.getStore('FormRequirements');
+        debugger;
+    },
+
     init: function(application) {
                 nodeJsService    = "http://localhost:3000/";
                 socket           = io('http://localhost:3030');
@@ -104,6 +124,15 @@ Ext.define('LenderAdmin.controller.Base', {
             },
             "#removeDealerFromGridbtn": {
                 click: this.onRemoveDealerFromGridbtnClick
+            },
+            "#formTypeFiltercbo": {
+                select: this.onFormTypeFiltercboSelect
+            },
+            "#formsListgrd": {
+                select: this.onFormsListgrdSelect
+            },
+            "#removeRequirementbtn": {
+                click: this.onRemoveRequirementbtnClick
             }
         });
     }

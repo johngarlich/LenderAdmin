@@ -38,6 +38,39 @@ Ext.define('LenderAdmin.model.Form', {
         },
         {
             name: '_id'
+        },
+        {
+            name: 'ownershipType'
+        },
+        {
+            name: 'states'
+        },
+        {
+            name: 'lenders'
+        },
+        {
+            name: 'dealers'
+        },
+        {
+            name: 'manufacturers'
+        },
+        {
+            name: 'dealTypes'
+        },
+        {
+            name: 'fixedFees'
+        },
+        {
+            name: 'fixedProducts'
+        },
+        {
+            name: 'feeLinesAvailable'
+        },
+        {
+            name: 'fixedProductLinesAvailable'
+        },
+        {
+            name: 'line5LinesAvailable'
         }
     ]
 });

@@ -34,7 +34,8 @@ Ext.application({
         'Lenders',
         'DealerIdsGrid',
         'FormRequirements',
-        'FormTypes'
+        'FormTypes',
+        'Forms'
     ],
     views: [
         'MyViewport'

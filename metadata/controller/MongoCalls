@@ -159,7 +159,8 @@
                 "designer|targetType": "Ext.form.Panel",
                 "fn": "onLendersfrmAfterRender",
                 "implHandler": [
-                    "this.getAllLenders();"
+                    "this.getAllLenders();",
+                    "//this.getAllForms();"
                 ],
                 "name": "afterrender",
                 "scope": "me"
@@ -204,6 +205,66 @@
                 "scope": "me"
             },
             "designerId": "3b5ebfd6-9838-4c50-95f1-3c59f4e47eef"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getAllForms",
+                "implHandler": [
+                    "var collectionName = \"forms\";",
+                    "var query          = {};",
+                    "query              = JSON.stringify(query);",
+                    "debugger;",
+                    "var store          = Ext.getStore('Forms');",
+                    "store.removeAll();",
+                    "this.getAllDocs(collectionName,query,store);",
+                    ""
+                ]
+            },
+            "designerId": "74c92234-557c-4f16-af01-5a744da5bd45"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "collectionName",
+                    "query",
+                    "store"
+                ],
+                "fn": "getAllDocs",
+                "implHandler": [
+                    "scope = this;",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/getDocs\",",
+                    "    success: function(response,err){",
+                    "        var docsArray = JSON.parse(response.responseText);",
+                    "        debugger;",
+                    "        store.clearFilter();",
+                    "        store.loadData(docsArray);",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"wasn't able to get docs from collection \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"query\"      :query,",
+                    "        \"collectionS\":collectionName",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "3660ddd3-5126-4a0f-8991-abb3bf7b7f05"
         },
         {
             "type": "basicfunction",
@@ -448,6 +509,26 @@
                 ]
             },
             "designerId": "48245539-be12-44e6-92f5-5b44e86f2e99"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#refreshFormsListbtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onRefreshFormsListbtnClick",
+                "implHandler": [
+                    "Ext.ComponentQuery.query('#formTypeFiltercbo')[0].setValue(\"\");",
+                    "this.getAllForms();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "65119053-6a40-43cd-9803-df6b6871d26d"
         }
     ]
 }
