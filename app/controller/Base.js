@@ -99,7 +99,10 @@ Ext.define('LenderAdmin.controller.Base', {
 
     onRemoveRequirementbtnClick: function(button, e, eOpts) {
         var store = Ext.getStore('FormRequirements');
-        debugger;
+        var grid  = Ext.ComponentQuery.query('#requirementsgrd')[0];
+        var selected = grid.getSelectionModel().getSelection();
+        grid.store.remove(selected);
+
     },
 
     init: function(application) {

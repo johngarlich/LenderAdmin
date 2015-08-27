@@ -3,7 +3,6 @@
 	{"name":"BuyersDriversLicense"},
 	{"name":"InsuranceCard"},
 	{"name":"MSO"},
-	{"name":"BookoutInvoice"},
 	{"name":"Approval"},
 	{"name":"SaleVehicleTitle"},
 	{"name":"Bookout/Invoice"},
@@ -22,5 +21,6 @@
 	{"name":"NoticeOfSecurityInterest"},
 	{"name":"Lease"},
 	{"name":"LeaseWorksheet"},
-	{"name":"LeaseGuaranty"}
+	{"name":"LeaseGuaranty"},
+	{"name":"LienPerfection"}
 ]

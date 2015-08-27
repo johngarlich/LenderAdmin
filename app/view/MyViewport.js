@@ -21,11 +21,11 @@ Ext.define('LenderAdmin.view.MyViewport', {
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.form.field.ComboBox',
-        'Ext.form.field.Number',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Spacer'
     ],
 
     layout: 'border',
@@ -42,6 +42,17 @@ Ext.define('LenderAdmin.view.MyViewport', {
                     bodyPadding: 10,
                     title: 'Lenders',
                     dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    itemId: 'saveLenderReqsbtn',
+                                    text: 'Save the ENTIRE LENDER REQUIREMENTS (after you have completed all of the sections)'
+                                }
+                            ]
+                        },
                         {
                             xtype: 'toolbar',
                             dock: 'top',
@@ -115,6 +126,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                 },
                                 {
                                     xtype: 'combobox',
+                                    itemId: 'lenderStatecbo',
                                     margin: '0 5 0 5',
                                     width: 134,
                                     fieldLabel: 'lenderState',
@@ -254,13 +266,19 @@ Ext.define('LenderAdmin.view.MyViewport', {
                             },
                             items: [
                                 {
-                                    xtype: 'numberfield',
+                                    xtype: 'combobox',
                                     margin: '0 5 0 5',
                                     width: 311,
                                     fieldLabel: 'reservePercentage',
                                     name: 'reservePercentage',
-                                    maxValue: 1,
-                                    minValue: 0
+                                    store: [
+                                        '0.75',
+                                        '1.00',
+                                        'flat',
+                                        '0.77',
+                                        '0.80',
+                                        '0.70'
+                                    ]
                                 },
                                 {
                                     xtype: 'textfield',
@@ -288,6 +306,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                             items: [
                                 {
                                     xtype: 'combobox',
+                                    itemId: 'dealerIdscbo',
                                     margin: '0 5 0 5',
                                     fieldLabel: 'dealerIds',
                                     labelWidth: 55,
@@ -347,6 +366,19 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                     flex: 1,
                                     bodyPadding: 10,
                                     title: 'Required Core Forms for this lender',
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    itemId: 'refreshFormsListbtn',
+                                                    text: 'Refresh Forms List'
+                                                }
+                                            ]
+                                        }
+                                    ],
                                     items: [
                                         {
                                             xtype: 'container',
@@ -367,22 +399,6 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                                     displayField: 'name',
                                                     queryMode: 'local',
                                                     store: 'FormTypes'
-                                                },
-                                                {
-                                                    xtype: 'combobox',
-                                                    margin: '0 5 0 5',
-                                                    width: 253,
-                                                    fieldLabel: 'publicName',
-                                                    labelWidth: 75,
-                                                    name: 'publicName'
-                                                },
-                                                {
-                                                    xtype: 'combobox',
-                                                    margin: '0 5 0 5',
-                                                    width: 217,
-                                                    fieldLabel: 'formId',
-                                                    labelWidth: 40,
-                                                    name: 'formId'
                                                 }
                                             ]
                                         },
@@ -405,81 +421,132 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    width: 187,
                                                     dataIndex: 'formId',
                                                     text: 'FormId'
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    width: 227,
                                                     dataIndex: 'publicName',
                                                     text: 'PublicName'
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    width: 172,
                                                     dataIndex: '_id',
                                                     text: '_id'
                                                 }
                                             ]
                                         },
                                         {
-                                            xtype: 'gridpanel',
-                                            itemId: 'requirementsgrd',
-                                            margin: '5 0 0 0',
+                                            xtype: 'form',
+                                            itemId: 'coreReqsfrm',
+                                            layout: 'fit',
                                             title: 'Core Form Requirements',
-                                            store: 'FormRequirements',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'formCategory',
-                                                    text: 'FormCategory'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'formType',
-                                                    text: 'FormType'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'formId',
-                                                    text: 'FormId'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'publicName',
-                                                    text: 'PublicName'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: '_id',
-                                                    text: '_id'
-                                                }
-                                            ],
-                                            dockedItems: [
-                                                {
-                                                    xtype: 'toolbar',
-                                                    dock: 'top',
-                                                    items: [
-                                                        {
-                                                            xtype: 'button',
-                                                            itemId: 'removeRequirementbtn',
-                                                            text: 'Remove Selected Item from Core Requirements'
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            selModel: Ext.create('Ext.selection.CheckboxModel', {
-
-                                            })
-                                        }
-                                    ],
-                                    dockedItems: [
-                                        {
-                                            xtype: 'toolbar',
-                                            dock: 'top',
                                             items: [
                                                 {
-                                                    xtype: 'button',
-                                                    itemId: 'refreshFormsListbtn',
-                                                    text: 'Refresh Forms List'
+                                                    xtype: 'gridpanel',
+                                                    itemId: 'requirementsgrd',
+                                                    margin: '5 0 0 0',
+                                                    store: 'FormRequirements',
+                                                    dockedItems: [
+                                                        {
+                                                            xtype: 'toolbar',
+                                                            dock: 'top',
+                                                            items: [
+                                                                {
+                                                                    xtype: 'button',
+                                                                    itemId: 'removeRequirementbtn',
+                                                                    text: 'Remove Selected Item from Core Requirements'
+                                                                },
+                                                                {
+                                                                    xtype: 'tbspacer',
+                                                                    width: 200
+                                                                },
+                                                                {
+                                                                    xtype: 'button',
+                                                                    itemId: 'saveLenderReqs',
+                                                                    text: 'Save Lender Requirements'
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            xtype: 'toolbar',
+                                                            dock: 'top',
+                                                            items: [
+                                                                {
+                                                                    xtype: 'textfield',
+                                                                    itemId: 'lenderIdReq',
+                                                                    margin: '0 5 0 5',
+                                                                    width: 282,
+                                                                    fieldLabel: 'lenderId',
+                                                                    labelWidth: 50,
+                                                                    name: 'lenderIdReq'
+                                                                },
+                                                                {
+                                                                    xtype: 'textfield',
+                                                                    itemId: 'dealerIdReq',
+                                                                    margin: '0 5 0 5',
+                                                                    width: 226,
+                                                                    fieldLabel: 'dealerId',
+                                                                    labelWidth: 50,
+                                                                    name: 'dealerIdReq'
+                                                                },
+                                                                {
+                                                                    xtype: 'textfield',
+                                                                    itemId: 'lenderStateReq',
+                                                                    margin: '0 5 0 5',
+                                                                    width: 106,
+                                                                    fieldLabel: 'lenderState',
+                                                                    labelWidth: 60,
+                                                                    name: 'lenderStateReq'
+                                                                },
+                                                                {
+                                                                    xtype: 'textfield',
+                                                                    itemId: 'mongoIdReqtxt',
+                                                                    margin: '0 5 0 5',
+                                                                    width: 258,
+                                                                    fieldLabel: 'mongoIdReq',
+                                                                    labelWidth: 70,
+                                                                    name: 'mongoIdReq'
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    columns: [
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'formCategory',
+                                                            text: 'FormCategory'
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'formType',
+                                                            text: 'FormType'
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            width: 170,
+                                                            dataIndex: 'formId',
+                                                            text: 'FormId'
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            width: 230,
+                                                            dataIndex: 'publicName',
+                                                            text: 'PublicName'
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            width: 203,
+                                                            dataIndex: '_id',
+                                                            text: '_id'
+                                                        }
+                                                    ],
+                                                    selModel: Ext.create('Ext.selection.CheckboxModel', {
+
+                                                    })
                                                 }
                                             ]
                                         }
