@@ -48,7 +48,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    itemId: 'saveLenderReqsbtn',
+                                    itemId: 'saveEntireLenderReqsbtn',
                                     text: 'Save the ENTIRE LENDER REQUIREMENTS (after you have completed all of the sections)'
                                 }
                             ]
@@ -140,6 +140,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                 },
                                 {
                                     xtype: 'combobox',
+                                    itemId: 'financeTypecbo',
                                     margin: '0 5 0 5',
                                     width: 191,
                                     fieldLabel: 'financeType',
@@ -510,43 +511,54 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                                                     fieldLabel: 'mongoIdReq',
                                                                     labelWidth: 70,
                                                                     name: 'mongoIdReq'
+                                                                },
+                                                                {
+                                                                    xtype: 'textfield',
+                                                                    itemId: 'financeTypeReq',
+                                                                    margin: '0 5 0 5',
+                                                                    width: 158,
+                                                                    fieldLabel: 'financeTypeReq',
+                                                                    labelWidth: 80,
+                                                                    name: 'financeTypeReq'
                                                                 }
                                                             ]
                                                         }
                                                     ],
+                                                    selModel: Ext.create('Ext.selection.CheckboxModel', {
+
+                                                    }),
                                                     columns: [
                                                         {
                                                             xtype: 'gridcolumn',
+                                                            width: 113,
                                                             dataIndex: 'formCategory',
                                                             text: 'FormCategory'
                                                         },
                                                         {
                                                             xtype: 'gridcolumn',
+                                                            width: 120,
                                                             dataIndex: 'formType',
                                                             text: 'FormType'
                                                         },
                                                         {
                                                             xtype: 'gridcolumn',
-                                                            width: 170,
+                                                            width: 145,
                                                             dataIndex: 'formId',
                                                             text: 'FormId'
                                                         },
                                                         {
                                                             xtype: 'gridcolumn',
-                                                            width: 230,
+                                                            width: 220,
                                                             dataIndex: 'publicName',
                                                             text: 'PublicName'
                                                         },
                                                         {
                                                             xtype: 'gridcolumn',
-                                                            width: 203,
+                                                            width: 266,
                                                             dataIndex: '_id',
                                                             text: '_id'
                                                         }
-                                                    ],
-                                                    selModel: Ext.create('Ext.selection.CheckboxModel', {
-
-                                                    })
+                                                    ]
                                                 }
                                             ]
                                         }

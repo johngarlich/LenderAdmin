@@ -42,7 +42,8 @@
             "ccc93452-4de0-4610-bd49-68fca2954e26",
             "84a97121-7f13-494d-86ab-20083389562e",
             "86834152-bc74-4541-a9cb-20a9937a7cae",
-            "9f9f6e13-ebd2-4001-b70f-e40dc8f02486"
+            "9f9f6e13-ebd2-4001-b70f-e40dc8f02486",
+            "f1c17e32-d49b-4beb-86c4-07e3a3f8fa3a"
         ],
         "controller": [
             "46e17e39-73a4-4b2d-97ad-9e8b7da316f8",
@@ -54,13 +55,15 @@
             "aa2a1afe-dd85-454f-8b37-bb5f492ccc05",
             "f4d528b0-be89-4d8e-adbc-007721fda246",
             "60dffad2-2acc-4bd8-a332-97759276a3bf",
-            "af50b50a-ce5d-46b4-9d51-928098e9e915"
+            "af50b50a-ce5d-46b4-9d51-928098e9e915",
+            "68677105-6ec7-4c2e-8c5f-1998d7b69652"
         ],
         "resource": [
             "33553d41-839e-4f35-804d-0ca0ce525aa4",
             "9e027125-9ec6-477b-8317-49675eb87d6f",
             "6eb6828e-0fdd-4f47-a4c8-8390c1befe35",
-            "af1623ee-99c1-4a38-867d-5ada153f0583"
+            "af1623ee-99c1-4a38-867d-5ada153f0583",
+            "242000ec-16b2-46cc-b62e-edc73df7c119"
         ],
         "app": [
             "application"

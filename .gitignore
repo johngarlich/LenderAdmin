@@ -1,4 +1,7 @@
-build/
-ext/
-.architect
 .sencha/
+.architect
+build/
+.sass-cache
+archive
+ext/
+bootstrap.json

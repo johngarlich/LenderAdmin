@@ -45,11 +45,14 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var lenderId    = Ext.ComponentQuery.query('#lenderIdcbo')[0].getValue();
         var dealerId    = Ext.ComponentQuery.query('#dealerIdscbo')[0].getValue();
         var lenderState = Ext.ComponentQuery.query('#lenderStatecbo')[0].getValue();
+        var financeType = Ext.ComponentQuery.query('#financeTypecbo')[0].getValue();
         Ext.ComponentQuery.query('#lenderIdReq')[0].setValue(lenderId);
         Ext.ComponentQuery.query('#dealerIdReq')[0].setValue(dealerId);
         Ext.ComponentQuery.query('#lenderStateReq')[0].setValue(lenderState);
+        Ext.ComponentQuery.query('#financeTypeReq')[0].setValue(financeType);
+        this.getLenderFormReqs();
 
-        this.getLenderFormRequirements();
+
 
     },
 
@@ -129,6 +132,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var lenderIdReq    = Ext.ComponentQuery.query('field[name=lenderIdReq]')[0].getValue();
         var dealerIdReq    = Ext.ComponentQuery.query('field[name=dealerIdReq]')[0].getValue();
         var lenderStateReq = Ext.ComponentQuery.query('field[name=lenderStateReq]')[0].getValue();
+        var financeTypeReq = Ext.ComponentQuery.query('field[name=financeTypeReq]')[0].getValue();
         var mongoIdReq     = Ext.ComponentQuery.query('field[name=mongoIdReq]')[0].getValue();
         var store = Ext.getStore('FormRequirements');
         var values = store.data.items;
@@ -136,7 +140,15 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var formReqs = [];
         Ext.Array.forEach(values, function(item,index,self){
 
-            formReq = item.data;
+            formReq = {
+                "_id"        : item.data._id,
+                formCategory : item.data.formCategory,
+                formType     : item.data.formType,
+                formId       : item.data.formId,
+                publicName   : item.data.publicName
+
+            };
+
             formReqs.push(formReq);
         });
 
@@ -144,17 +156,22 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             lenderId   : lenderIdReq,
             dealerId   : dealerIdReq,
             lenderState: lenderStateReq,
+            financeType: financeTypeReq,
             formReqs   : formReqs
         };
         var doc            = lenderReqs;
         var collectionName = "coreLenderForms";
-        if (mongoIdReq == ""){
+        if (mongoIdReq === ""){
             this.insertDoc(collectionName,doc);
         }
         else {
             this.upsertDocById(collectionName,doc,mongoIdReq);
         }
 
+
+    },
+
+    onSaveEntireLenderReqsbtnClick: function(button, e, eOpts) {
 
     },
 
@@ -191,7 +208,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var collectionName = "forms";
         var query          = {};
         query              = JSON.stringify(query);
-        debugger;
+
         var store          = Ext.getStore('Forms');
         store.removeAll();
         this.getAllDocs(collectionName,query,store);
@@ -204,7 +221,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             url: nodeJsService + "collection/getDocs",
             success: function(response,err){
                 var docsArray = JSON.parse(response.responseText);
-                debugger;
+
                 store.clearFilter();
                 store.loadData(docsArray);
             },
@@ -218,6 +235,64 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             }
         });
 
+    },
+
+    getDocById: function(collectionName, mongoId, store) {
+        var scope = this;
+        debugger;
+        Ext.Ajax.request({
+            url: nodeJsService + "collection/getDocById",
+            success: function(response,err){
+                if (response.responseText=="false"){
+                    alert("did not get the document from " + collectionName);
+
+                }
+                else {
+                    debugger;
+                    var docs = JSON.parse(doc);
+                    var doc  = docs[0];
+                    debugger;
+                    store.add(doc);
+                }
+            },
+            failure: function(response,err){
+                alert("Did not get doc from " + collectionName);
+            },
+            method: 'GET',
+            params: {
+                "collectionS":collectionName,
+                "mongoId"    :mongoId
+            }
+        });
+    },
+
+    getDocsByIds: function(collectionName, mongoIds, store) {
+        var scope = this;
+
+        Ext.Ajax.request({
+            url: nodeJsService + "collection/getDocsByIds",
+            success: function(response,err){
+                debugger;
+                if (JSON.parse(response.responseText).error){
+                    alert("did not get the document from " + collectionName);
+
+                }
+                else {
+
+                    var docs = (JSON.parse(response.responseText).result);
+
+                    store.add(docs);
+                }
+            },
+            failure: function(response,err){
+                alert("Did not get doc from " + collectionName);
+            },
+            method: 'GET',
+            params: {
+                "collectionS":collectionName,
+                "mongoId"    :JSON.stringify(mongoIds)
+            }
+        });
     },
 
     getReservePercentageAndLendersDealerId: function() {
@@ -266,7 +341,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         Ext.Ajax.request({
             url: nodeJsService + "collection/insertDoc",
             success: function(response,err){
-                debugger;
+
                 if(response.responseText === false){
                     alert('no insert');
                 }
@@ -299,7 +374,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
                 else {
                     var upsertedDoc = JSON.parse(response.responseText);
                     var mongoId     = response.request.options.params.mongoId;
-                    debugger;
+
                     switch(collectionName){
                         case "coreLenderForms":
                             alert('upserted coreLenderForms by Id');
@@ -334,7 +409,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         Ext.Ajax.request({
             url: nodeJsService + "collection/upsertDoc",
             success: function(response,err){
-                debugger;
+
                 if(response.responseText === false){
                     alert('no upsert');
                 }
@@ -376,7 +451,7 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         Ext.Ajax.request({
             url: nodeJsService + "collection/" + mongoCall,
             success: function(response,err){
-                debugger;
+
                 if(response.responseText === false){
                     alert('no upsert of '+collectionName);
                 }
@@ -418,18 +493,21 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         });
     },
 
-    getLenderFormRequirements: function() {
+    getLenderFormReqs: function() {
         var collectionName = "coreLenderForms";
-        var mongoCall      = "getDocs";
+
         var lenderState    = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();
         var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();
         var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
-        var query          = {lenderState:lenderState, lenderId:lenderId, dealerId:dealerId};
+        var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();
+        var query          = {lenderState:lenderState, lenderId:lenderId, dealerId:dealerId, financeType:financeType};
         var store          = Ext.getStore('FormRequirements');
+        var mongoIds       = [];
         store.removeAll();
+        scope = this;
 
         Ext.Ajax.request({
-            url: nodeJsService + "collection/" + mongoCall,
+            url: nodeJsService + "collection/getDocs",
             success: function(response,err){
                 var docs = JSON.parse(response.responseText);
                 if(docs.length===0){
@@ -438,11 +516,12 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
                 }
                 else {
                     var doc  = docs[0];
-                    var formReqs = doc.formReqs;
                     Ext.ComponentQuery.query('field[name=mongoIdReq]')[0].setValue(doc._id);
-                    debugger;
-                    store = Ext.getStore("FormRequirements");
-                    store.loadData(formReqs);
+                    //store.loadData(doc.formReqs);
+                    Ext.Array.each(doc.formReqs, function(item,index,self){
+                        mongoIds.push(item._id);
+                    });
+                    scope.getFormRequirementsFromFormsCollection(mongoIds);
                 }
 
             },
@@ -456,6 +535,12 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             }
         });
 
+    },
+
+    getFormRequirementsFromFormsCollection: function(mongoIds) {
+        var collectionName = "forms";
+        var store = Ext.getStore("FormRequirements");
+        this.getDocsByIds(collectionName,mongoIds,store);
     },
 
     init: function(application) {
@@ -481,6 +566,9 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
             },
             "#saveLenderReqs": {
                 click: this.onSaveLenderReqsClick
+            },
+            "#saveEntireLenderReqsbtn": {
+                click: this.onSaveEntireLenderReqsbtnClick
             }
         });
     }

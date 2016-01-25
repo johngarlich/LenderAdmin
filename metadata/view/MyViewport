@@ -47,7 +47,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "saveLenderReqsbtn",
+                                "itemId": "saveEntireLenderReqsbtn",
                                 "layout|flex": null,
                                 "text": "Save the ENTIRE LENDER REQUIREMENTS (after you have completed all of the sections)"
                             },
@@ -238,6 +238,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "financeType",
+                                "itemId": "financeTypecbo",
                                 "labelWidth": 75,
                                 "margin": "0 5 0 5",
                                 "name": "financeType",
@@ -935,74 +936,6 @@
                                                     "designerId": "c38e5af6-d8f2-47e1-89d7-65c612da6baa"
                                                 },
                                                 {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "formCategory",
-                                                        "text": "FormCategory"
-                                                    },
-                                                    "designerId": "0b0c99f7-cc63-4d63-ba16-e3e4759e6fcb"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "formType",
-                                                        "text": "FormType"
-                                                    },
-                                                    "designerId": "ce355c53-7622-472b-8afd-7842544cf02c"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "formId",
-                                                        "text": "FormId",
-                                                        "width": 170
-                                                    },
-                                                    "designerId": "f070ef35-888d-4af1-9b5d-5df192eb6f9a"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "publicName",
-                                                        "text": "PublicName",
-                                                        "width": 230
-                                                    },
-                                                    "designerId": "2e401c5f-5814-40ce-bf1d-d697d54e8ed4"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "_id",
-                                                        "text": "_id",
-                                                        "width": 203
-                                                    },
-                                                    "designerId": "4cff0d02-b1f2-4ef4-845d-bc1ad1c2e3aa"
-                                                },
-                                                {
                                                     "type": "Ext.selection.CheckboxModel",
                                                     "reference": {
                                                         "name": "selModel",
@@ -1094,8 +1027,96 @@
                                                                 "width": 258
                                                             },
                                                             "designerId": "dd7bd838-3e5a-42dd-ad9c-b8d174eb14f1"
+                                                        },
+                                                        {
+                                                            "type": "Ext.form.field.Text",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "financeTypeReq",
+                                                                "itemId": "financeTypeReq",
+                                                                "labelWidth": 80,
+                                                                "layout|flex": null,
+                                                                "margin": "0 5 0 5",
+                                                                "name": "financeTypeReq",
+                                                                "width": 158
+                                                            },
+                                                            "designerId": "3bac5899-ed39-4eea-87f3-a8b95fca63b5"
                                                         }
                                                     ]
+                                                },
+                                                {
+                                                    "type": "Ext.grid.column.Column",
+                                                    "reference": {
+                                                        "name": "columns",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dataIndex": "formCategory",
+                                                        "text": "FormCategory",
+                                                        "width": 113
+                                                    },
+                                                    "designerId": "de36dcfb-1509-4d41-a264-c415db99eda6"
+                                                },
+                                                {
+                                                    "type": "Ext.grid.column.Column",
+                                                    "reference": {
+                                                        "name": "columns",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dataIndex": "formType",
+                                                        "text": "FormType",
+                                                        "width": 120
+                                                    },
+                                                    "designerId": "58199c27-cc68-4795-a496-7a420534bb66"
+                                                },
+                                                {
+                                                    "type": "Ext.grid.column.Column",
+                                                    "reference": {
+                                                        "name": "columns",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dataIndex": "formId",
+                                                        "text": "FormId",
+                                                        "width": 145
+                                                    },
+                                                    "designerId": "9db4dfe4-3692-44f6-a9ce-b12014aa2d97"
+                                                },
+                                                {
+                                                    "type": "Ext.grid.column.Column",
+                                                    "reference": {
+                                                        "name": "columns",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dataIndex": "publicName",
+                                                        "text": "PublicName",
+                                                        "width": 220
+                                                    },
+                                                    "designerId": "8a29985b-df09-4517-9896-f14ee68a2ca0"
+                                                },
+                                                {
+                                                    "type": "Ext.grid.column.Column",
+                                                    "reference": {
+                                                        "name": "columns",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dataIndex": "_id",
+                                                        "text": "_id",
+                                                        "width": 266
+                                                    },
+                                                    "designerId": "abae2835-18f4-4b08-bb6d-a2216636bd8c"
                                                 }
                                             ]
                                         }

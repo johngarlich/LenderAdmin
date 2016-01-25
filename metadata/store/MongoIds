@@ -1,0 +1,39 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MongoIds",
+        "model": "MongoId",
+        "storeId": "MongoIds"
+    },
+    "designerId": "f1c17e32-d49b-4beb-86c4-07e3a3f8fa3a",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "http://localhost:3000/collection/getDocs"
+            },
+            "designerId": "e1521f95-83ab-47b1-b979-cccf8499ef9a",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "35421fe1-5c25-4b89-8188-5c8b8c828637"
+                }
+            ]
+        }
+    ]
+}

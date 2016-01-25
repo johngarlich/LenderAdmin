@@ -26,7 +26,8 @@ Ext.application({
         'LenderDealer',
         'FormRequirement',
         'FormType',
-        'Form'
+        'Form',
+        'MongoId'
     ],
     stores: [
         'DealerIds',
@@ -35,7 +36,8 @@ Ext.application({
         'DealerIdsGrid',
         'FormRequirements',
         'FormTypes',
-        'Forms'
+        'Forms',
+        'MongoIds'
     ],
     views: [
         'MyViewport'

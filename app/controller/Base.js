@@ -32,7 +32,7 @@ Ext.define('LenderAdmin.controller.Base', {
     },
 
     onClearFieldsbtnClick: function(button, e, eOpts) {
-        debugger;
+
         // clear all of the fields except the stateFiltercbo.  You need to
         // have a value in the stateFiltercbo otherwise you want get any values
         // for lenderIds when you expand the combobox as it is filtered by the state that is chosen
@@ -85,14 +85,14 @@ Ext.define('LenderAdmin.controller.Base', {
     onFormTypeFiltercboSelect: function(combo, records, eOpts) {
         var store = Ext.getStore('Forms');
         store.clearFilter();
-        debugger;
+
         store.filter([
             {property:"formType",value:records[0].data.name}
         ]);
     },
 
     onFormsListgrdSelect: function(rowmodel, record, index, eOpts) {
-        debugger;
+
         var store = Ext.getStore('FormRequirements');
         store.add(record.data);
     },

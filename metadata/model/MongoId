@@ -1,0 +1,26 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MongoId"
+    },
+    "designerId": "68677105-6ec7-4c2e-8c5f-1998d7b69652",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "_id"
+            },
+            "designerId": "5b966ab2-14ae-4b04-8caf-a92176cf70d0"
+        }
+    ]
+}

@@ -86,7 +86,7 @@
                 "designer|targetType": "Ext.button.Button",
                 "fn": "onClearFieldsbtnClick",
                 "implHandler": [
-                    "debugger;",
+                    "",
                     "// clear all of the fields except the stateFiltercbo.  You need to",
                     "// have a value in the stateFiltercbo otherwise you want get any values",
                     "// for lenderIds when you expand the combobox as it is filtered by the state that is chosen",
@@ -199,7 +199,7 @@
                 "implHandler": [
                     "var store = Ext.getStore('Forms');",
                     "store.clearFilter();",
-                    "debugger;",
+                    "",
                     "store.filter([",
                     "    {property:\"formType\",value:records[0].data.name}",
                     "]);"
@@ -221,7 +221,7 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onFormsListgrdSelect",
                 "implHandler": [
-                    "debugger;",
+                    "",
                     "var store = Ext.getStore('FormRequirements');",
                     "store.add(record.data);"
                 ],

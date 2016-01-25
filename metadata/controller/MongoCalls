@@ -90,11 +90,14 @@
                     "var lenderId    = Ext.ComponentQuery.query('#lenderIdcbo')[0].getValue();",
                     "var dealerId    = Ext.ComponentQuery.query('#dealerIdscbo')[0].getValue();",
                     "var lenderState = Ext.ComponentQuery.query('#lenderStatecbo')[0].getValue();",
+                    "var financeType = Ext.ComponentQuery.query('#financeTypecbo')[0].getValue();",
                     "Ext.ComponentQuery.query('#lenderIdReq')[0].setValue(lenderId);",
                     "Ext.ComponentQuery.query('#dealerIdReq')[0].setValue(dealerId);",
                     "Ext.ComponentQuery.query('#lenderStateReq')[0].setValue(lenderState);",
+                    "Ext.ComponentQuery.query('#financeTypeReq')[0].setValue(financeType);",
+                    "this.getLenderFormReqs();",
                     "",
-                    "this.getLenderFormRequirements();",
+                    "",
                     ""
                 ],
                 "name": "select",
@@ -231,7 +234,7 @@
                     "var collectionName = \"forms\";",
                     "var query          = {};",
                     "query              = JSON.stringify(query);",
-                    "debugger;",
+                    "",
                     "var store          = Ext.getStore('Forms');",
                     "store.removeAll();",
                     "this.getAllDocs(collectionName,query,store);",
@@ -260,7 +263,7 @@
                     "    url: nodeJsService + \"collection/getDocs\",",
                     "    success: function(response,err){",
                     "        var docsArray = JSON.parse(response.responseText);",
-                    "        debugger;",
+                    "",
                     "        store.clearFilter();",
                     "        store.loadData(docsArray);",
                     "    },",
@@ -277,6 +280,96 @@
                 ]
             },
             "designerId": "3660ddd3-5126-4a0f-8991-abb3bf7b7f05"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "collectionName",
+                    "mongoId",
+                    "store"
+                ],
+                "fn": "getDocById",
+                "implHandler": [
+                    "var scope = this;",
+                    "debugger;",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/getDocById\",",
+                    "    success: function(response,err){",
+                    "        if (response.responseText==\"false\"){",
+                    "            alert(\"did not get the document from \" + collectionName);",
+                    "",
+                    "        }",
+                    "        else {",
+                    "            debugger;",
+                    "            var docs = JSON.parse(doc);",
+                    "            var doc  = docs[0];",
+                    "            debugger;",
+                    "            store.add(doc);",
+                    "        }",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"Did not get doc from \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"collectionS\":collectionName,",
+                    "        \"mongoId\"    :mongoId",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "478461b2-c98d-4d3c-9228-b4dfd27b9dc6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "collectionName",
+                    "mongoIds",
+                    "store"
+                ],
+                "fn": "getDocsByIds",
+                "implHandler": [
+                    "var scope = this;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: nodeJsService + \"collection/getDocsByIds\",",
+                    "    success: function(response,err){",
+                    "        debugger;",
+                    "        if (JSON.parse(response.responseText).error){",
+                    "            alert(\"did not get the document from \" + collectionName);",
+                    "",
+                    "        }",
+                    "        else {",
+                    "           ",
+                    "            var docs = (JSON.parse(response.responseText).result);",
+                    "          ",
+                    "            store.add(docs);",
+                    "        }",
+                    "    },",
+                    "    failure: function(response,err){",
+                    "        alert(\"Did not get doc from \" + collectionName);",
+                    "    },",
+                    "    method: 'GET',",
+                    "    params: {",
+                    "        \"collectionS\":collectionName,",
+                    "        \"mongoId\"    :JSON.stringify(mongoIds)",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "c65eedb5-86c7-4311-996f-5db633996a52"
         },
         {
             "type": "basicfunction",
@@ -348,7 +441,7 @@
                     "Ext.Ajax.request({",
                     "    url: nodeJsService + \"collection/insertDoc\",",
                     "    success: function(response,err){",
-                    "        debugger;",
+                    "",
                     "        if(response.responseText === false){",
                     "            alert('no insert');",
                     "        }",
@@ -357,7 +450,7 @@
                     "            var mongoIdReq  = insertedDoc._id;",
                     "            Ext.ComponentQuery.query('field[name=mongoIdReq]')[0].setValue(mongoIdReq);",
                     "        }",
-                    "        ",
+                    "",
                     "    },",
                     "    failure: function(response,err){",
                     "        alert(\"No insert\");",
@@ -397,7 +490,7 @@
                     "        else {",
                     "            var upsertedDoc = JSON.parse(response.responseText);",
                     "            var mongoId     = response.request.options.params.mongoId;",
-                    "            debugger;",
+                    "",
                     "            switch(collectionName){",
                     "                case \"coreLenderForms\":",
                     "                    alert('upserted coreLenderForms by Id');",
@@ -412,7 +505,7 @@
                     "                    Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].setValue(mongoId);",
                     "                    break;",
                     "            }",
-                    "            ",
+                    "",
                     "        }",
                     "    },",
                     "    failure: function(response,err){",
@@ -448,7 +541,7 @@
                     "Ext.Ajax.request({",
                     "    url: nodeJsService + \"collection/upsertDoc\",",
                     "    success: function(response,err){",
-                    "        debugger;",
+                    "",
                     "        if(response.responseText === false){",
                     "            alert('no upsert');",
                     "        }",
@@ -457,7 +550,7 @@
                     "            alert('upserted Lender Record');",
                     "            scope.upsertLenderDealerRecord();",
                     "        }",
-                    "        ",
+                    "",
                     "    },",
                     "    failure: function(response,err){",
                     "        alert(\"No upsert\");",
@@ -501,7 +594,7 @@
                     "Ext.Ajax.request({",
                     "    url: nodeJsService + \"collection/\" + mongoCall,",
                     "    success: function(response,err){",
-                    "        debugger;",
+                    "",
                     "        if(response.responseText === false){",
                     "            alert('no upsert of '+collectionName);",
                     "        }",
@@ -593,19 +686,22 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "getLenderFormRequirements",
+                "fn": "getLenderFormReqs",
                 "implHandler": [
                     "var collectionName = \"coreLenderForms\";",
-                    "var mongoCall      = \"getDocs\";",
+                    "",
                     "var lenderState    = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();",
                     "var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();",
                     "var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();",
-                    "var query          = {lenderState:lenderState, lenderId:lenderId, dealerId:dealerId};",
+                    "var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();",
+                    "var query          = {lenderState:lenderState, lenderId:lenderId, dealerId:dealerId, financeType:financeType};",
                     "var store          = Ext.getStore('FormRequirements');",
+                    "var mongoIds       = [];",
                     "store.removeAll();",
+                    "scope = this;",
                     "",
                     "Ext.Ajax.request({",
-                    "    url: nodeJsService + \"collection/\" + mongoCall,",
+                    "    url: nodeJsService + \"collection/getDocs\",",
                     "    success: function(response,err){",
                     "        var docs = JSON.parse(response.responseText);",
                     "        if(docs.length===0){",
@@ -614,13 +710,14 @@
                     "        }",
                     "        else {",
                     "            var doc  = docs[0];",
-                    "            var formReqs = doc.formReqs;",
                     "            Ext.ComponentQuery.query('field[name=mongoIdReq]')[0].setValue(doc._id);",
-                    "            debugger;",
-                    "            store = Ext.getStore(\"FormRequirements\");",
-                    "            store.loadData(formReqs);",
+                    "            //store.loadData(doc.formReqs);",
+                    "            Ext.Array.each(doc.formReqs, function(item,index,self){",
+                    "                mongoIds.push(item._id);",
+                    "            });",
+                    "            scope.getFormRequirementsFromFormsCollection(mongoIds);",
                     "        }",
-                    "        ",
+                    "",
                     "    },",
                     "    failure: function(response,err){",
                     "        alert(\"wasn't able to get docs from collection \" + collectionName);",
@@ -672,6 +769,7 @@
                     "var lenderIdReq    = Ext.ComponentQuery.query('field[name=lenderIdReq]')[0].getValue();",
                     "var dealerIdReq    = Ext.ComponentQuery.query('field[name=dealerIdReq]')[0].getValue();",
                     "var lenderStateReq = Ext.ComponentQuery.query('field[name=lenderStateReq]')[0].getValue();",
+                    "var financeTypeReq = Ext.ComponentQuery.query('field[name=financeTypeReq]')[0].getValue();",
                     "var mongoIdReq     = Ext.ComponentQuery.query('field[name=mongoIdReq]')[0].getValue();",
                     "var store = Ext.getStore('FormRequirements');",
                     "var values = store.data.items;",
@@ -679,7 +777,15 @@
                     "var formReqs = [];",
                     "Ext.Array.forEach(values, function(item,index,self){",
                     "",
-                    "    formReq = item.data;",
+                    "    formReq = {",
+                    "        \"_id\"        : item.data._id,",
+                    "        formCategory : item.data.formCategory,",
+                    "        formType     : item.data.formType,",
+                    "        formId       : item.data.formId,",
+                    "        publicName   : item.data.publicName",
+                    "",
+                    "    };",
+                    "",
                     "    formReqs.push(formReq);",
                     "});",
                     "",
@@ -687,11 +793,12 @@
                     "    lenderId   : lenderIdReq,",
                     "    dealerId   : dealerIdReq,",
                     "    lenderState: lenderStateReq,",
+                    "    financeType: financeTypeReq,",
                     "    formReqs   : formReqs",
                     "};",
                     "var doc            = lenderReqs;",
                     "var collectionName = \"coreLenderForms\";",
-                    "if (mongoIdReq == \"\"){",
+                    "if (mongoIdReq === \"\"){",
                     "    this.insertDoc(collectionName,doc);",
                     "}",
                     "else {",
@@ -704,6 +811,42 @@
                 "scope": "me"
             },
             "designerId": "94337192-f6bf-415a-995e-6e72ce68f6c2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#saveEntireLenderReqsbtn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onSaveEntireLenderReqsbtnClick",
+                "name": "click",
+                "scope": "me"
+            },
+            "designerId": "182331b4-cf84-4173-bd79-4875d017fd26"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "mongoIds"
+                ],
+                "fn": "getFormRequirementsFromFormsCollection",
+                "implHandler": [
+                    "var collectionName = \"forms\";",
+                    "var store = Ext.getStore(\"FormRequirements\");",
+                    "this.getDocsByIds(collectionName,mongoIds,store);"
+                ]
+            },
+            "designerId": "436f231e-df44-4c7f-8606-f26a246e8184"
         }
     ]
 }

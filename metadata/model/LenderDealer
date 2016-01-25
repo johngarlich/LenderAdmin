@@ -78,7 +78,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "_id"
+                "name": "formMongoId"
             },
             "designerId": "0eefa1b8-685c-44fc-a8ad-1ded29a7d632"
         }

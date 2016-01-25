@@ -16,7 +16,8 @@
             "LenderDealer",
             "FormRequirement",
             "FormType",
-            "Form"
+            "Form",
+            "MongoId"
         ],
         "name": "LenderAdmin",
         "stores": [
@@ -26,7 +27,8 @@
             "DealerIdsGrid",
             "FormRequirements",
             "FormTypes",
-            "Forms"
+            "Forms",
+            "MongoIds"
         ],
         "views": [
             "MyViewport"
