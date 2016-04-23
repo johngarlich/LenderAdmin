@@ -106,8 +106,13 @@ Ext.define('LenderAdmin.controller.Base', {
     },
 
     init: function(application) {
-                nodeJsService    = "http://localhost:3000/";
-                socket           = io('http://localhost:3030');
+                // server
+                nodeJsService    =      "http://172.31.14.38:2200/";
+                socket             = io("http://172.31.14.38:2230");
+
+                //nodeJsService    =      "http://54.200.128.222:2200/";
+                //socket             = io("http://54.200.128.222:2230");
+
 
         this.control({
             "#street2txt": {

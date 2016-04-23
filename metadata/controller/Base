@@ -68,8 +68,13 @@
                 ],
                 "fn": "init",
                 "implHandler": [
-                    "nodeJsService    = \"http://localhost:3000/\";",
-                    "socket           = io('http://localhost:3030');"
+                    "// server",
+                    "nodeJsService    =      \"http://172.31.14.38:2200/\";",
+                    "socket             = io(\"http://172.31.14.38:2230\");",
+                    "",
+                    "//nodeJsService    =      \"http://54.200.128.222:2200/\";",
+                    "//socket             = io(\"http://54.200.128.222:2230\");",
+                    ""
                 ]
             },
             "designerId": "19ee1d78-2c0e-47c7-bf1c-dd9a389e26ec"
