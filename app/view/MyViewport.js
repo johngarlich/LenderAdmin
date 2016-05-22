@@ -77,7 +77,9 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                     value: 'KS',
                                     store: [
                                         'KS',
+                                        'IL',
                                         'MO',
+                                        'PA',
                                         'TX'
                                     ]
                                 },
@@ -135,6 +137,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                     store: [
                                         'KS',
                                         'MO',
+                                        'PA',
                                         'TX'
                                     ]
                                 },
@@ -290,6 +293,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    itemId: 'mongoIdLD',
                                     margin: '0 5 0 5',
                                     width: 311,
                                     fieldLabel: 'mongoIdLD',

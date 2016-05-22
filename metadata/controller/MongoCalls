@@ -854,7 +854,7 @@
                     "var me = this;",
                     "Ext.Array.each(mongoIds,function(item,index,self){",
                     "    debugger;",
-                    "   me.getDocById(collectionName,item,store); ",
+                    "   me.getDocById(collectionName,item,store);",
                     "});",
                     ""
                 ]

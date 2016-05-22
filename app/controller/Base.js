@@ -49,15 +49,11 @@ Ext.define('LenderAdmin.controller.Base', {
     },
 
     onChangeStatebtnClick: function(button, e, eOpts) {
-        // clear mongoId, dealerIds and then change state
-        var state  = Ext.ComponentQuery.query("#stateFiltercbo")[0];
-        var state2 = Ext.ComponentQuery.query('field[name=lenderState]')[0];
-        var value = state.value;
-        if (value=="MO"){state.setValue("KS");state2.setValue("KS");}
-        if (value=="KS"){state.setValue("MO");state2.setValue("MO");}
+        // clear mongoId, dealerIds
 
         Ext.ComponentQuery.query('field[name=dealerIds]')[0].setValue("");
         Ext.ComponentQuery.query('field[name=mongoId]')[0].setValue("");
+        Ext.ComponentQuery.query('field[name=mongoIdLD]')[0].setValue("");
         var store = Ext.getStore('DealerIdsGrid');
         store.removeAll();
 
@@ -112,6 +108,19 @@ Ext.define('LenderAdmin.controller.Base', {
 
                 //nodeJsService    =      "http://54.200.128.222:2200/";
                 //socket             = io("http://54.200.128.222:2230");
+
+                // You have several files.
+                // There is a lenders file
+                // There is a lenderDealer file that has the reserver percentage
+                // There is a coreLenderForms file.  This is the key result of this program
+                // You put in standard info for the lender.
+                // Then you add the reserve, lenderDealer info (which is the lender's DealerId and the reserve percentage)
+                // Then you add the coreLenderForms for this lender
+                // You can add some more rules as you figure out what each lender needs differently
+                // Forms are created in the Forms admin app.  You need to remember that you will need to
+                // also load the form in Kevin's admin section so that you can generate guids for the forms
+
+
 
 
         this.control({

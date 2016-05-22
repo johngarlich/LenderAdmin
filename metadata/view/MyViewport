@@ -109,7 +109,7 @@
                                 "layout|flex": null,
                                 "name": "filterState",
                                 "store": [
-                                    "[\"KS\",\"MO\",\"TX\"]"
+                                    "[\"KS\",\"IL\",\"MO\",\"PA\",\"TX\"]"
                                 ],
                                 "value": [
                                     "\"KS\""
@@ -219,6 +219,7 @@
                                     "[",
                                     "    \"KS\",",
                                     "    \"MO\",",
+                                    "    \"PA\",",
                                     "    \"TX\"",
                                     "]"
                                 ],
@@ -520,6 +521,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "mongoIdLD",
+                                "itemId": "mongoIdLD",
                                 "margin": "0 5 0 5",
                                 "name": "mongoIdLD",
                                 "width": 311
