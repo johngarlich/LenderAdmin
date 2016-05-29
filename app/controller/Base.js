@@ -103,12 +103,14 @@ Ext.define('LenderAdmin.controller.Base', {
 
     init: function(application) {
                 // server
+
                 nodeJsService    =      "http://172.31.14.38:2200/";
                 socket             = io("http://172.31.14.38:2230");
 
-                //nodeJsService    =      "http://54.200.128.222:2200/";
-                //socket             = io("http://54.200.128.222:2230");
-
+                /*
+                nodeJsService    =      "http://52.27.221.144:2200/";
+                socket             = io("http://52.27.221.144:2230");
+                */
                 // You have several files.
                 // There is a lenders file
                 // There is a lenderDealer file that has the reserver percentage
