@@ -22,6 +22,7 @@
             "userConfig": {
                 "url": "http://localhost/collection/getDocs"
             },
+            "name": "MyAjaxProxy",
             "designerId": "ff8cdf0d-2dc0-4c4b-80f7-870f67dd0892",
             "cn": [
                 {
@@ -31,6 +32,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyJsonReader",
                     "designerId": "3c1a44d9-50e6-4966-9454-b6a03ca4cb16"
                 }
             ]
@@ -45,6 +47,7 @@
             "userConfig": {
                 "property": "lenderId"
             },
+            "name": "MySorter",
             "designerId": "44bda3fd-147e-4987-9d41-a5f9641a3948"
         }
     ]

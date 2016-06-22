@@ -34,5 +34,6 @@
             "MyViewport"
         ]
     },
+    "name": "Application",
     "designerId": "application"
 }

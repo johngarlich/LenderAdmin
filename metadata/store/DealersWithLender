@@ -23,6 +23,7 @@
             "userConfig": {
                 "url": "data/dealerIds.json"
             },
+            "name": "MyAjaxProxy6",
             "designerId": "2cb76c75-806d-4f17-8a31-e91a5b6bac71",
             "cn": [
                 {
@@ -32,6 +33,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyJsonReader6",
                     "designerId": "08b1729b-3af5-424c-bc3f-823d5120dcae"
                 }
             ]

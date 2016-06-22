@@ -28,6 +28,7 @@
             "userConfig": {
                 "name": "lenderId"
             },
+            "name": "MyField",
             "designerId": "becfc99c-69e0-4115-b7c8-fffd840b85f2"
         },
         {
@@ -40,6 +41,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField1",
             "designerId": "f3845255-f65e-4cbc-a7a3-fb4aa237bc17"
         },
         {
@@ -52,6 +54,7 @@
             "userConfig": {
                 "name": "lenderState"
             },
+            "name": "MyField2",
             "designerId": "8fe6b1a3-da29-4eae-86ad-0923baa11349"
         },
         {
@@ -64,6 +67,7 @@
             "userConfig": {
                 "name": "street"
             },
+            "name": "MyField3",
             "designerId": "a09b0a38-9d77-4dcc-bb07-1e604fce2419"
         },
         {
@@ -76,6 +80,7 @@
             "userConfig": {
                 "name": "street2"
             },
+            "name": "MyField4",
             "designerId": "bbaffae8-cc94-44fd-8c95-efe9757ac417"
         },
         {
@@ -88,6 +93,7 @@
             "userConfig": {
                 "name": "fullStreet"
             },
+            "name": "MyField5",
             "designerId": "b9cac311-a555-488d-ad43-d754c42e70d0"
         },
         {
@@ -100,6 +106,7 @@
             "userConfig": {
                 "name": "city"
             },
+            "name": "MyField6",
             "designerId": "7cabc2c6-3e31-4809-a583-a10156ca5648"
         },
         {
@@ -112,6 +119,7 @@
             "userConfig": {
                 "name": "state"
             },
+            "name": "MyField7",
             "designerId": "41cb5a4f-892b-4d47-9cbe-908c90baf702"
         },
         {
@@ -124,6 +132,7 @@
             "userConfig": {
                 "name": "zipcode"
             },
+            "name": "MyField8",
             "designerId": "1fa6e01c-9d1e-4c2a-9074-cd85f08ce46b"
         },
         {
@@ -136,6 +145,7 @@
             "userConfig": {
                 "name": "phone"
             },
+            "name": "MyField9",
             "designerId": "99e36ddb-3974-41ef-899d-6fe85af37582"
         },
         {
@@ -148,6 +158,7 @@
             "userConfig": {
                 "name": "csz"
             },
+            "name": "MyField10",
             "designerId": "bf834961-de9d-478f-a1a6-a004b7e66c9b"
         },
         {
@@ -160,6 +171,7 @@
             "userConfig": {
                 "name": "dealerIds"
             },
+            "name": "MyField11",
             "designerId": "0eef1d38-9fa9-48b3-b0be-10e8284a7944"
         },
         {
@@ -172,6 +184,7 @@
             "userConfig": {
                 "name": "_id"
             },
+            "name": "MyField12",
             "designerId": "d6b6b0ce-ca94-4805-b276-f8fd08f9cfda"
         },
         {
@@ -184,7 +197,21 @@
             "userConfig": {
                 "name": "financeType"
             },
+            "name": "MyField13",
             "designerId": "c636ec8d-ddf7-4636-81d7-de6364d3fb75"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fin"
+            },
+            "name": "MyField33",
+            "designerId": "05a05cce-593e-4a88-8592-e7ad8f8c99d9"
         }
     ]
 }

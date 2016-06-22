@@ -48,6 +48,7 @@
                     ""
                 ]
             },
+            "name": "getAllLenders",
             "designerId": "6849a480-14cc-41a6-8244-72f8380f040b"
         },
         {
@@ -64,6 +65,7 @@
                 "implHandler": [
                     "",
                     "var form = Ext.ComponentQuery.query('#lendersfrm')[0];",
+                    "debugger;",
                     "form.getForm().setValues(records[0].data);",
                     "// you have to set the _id field to mongoId",
                     "Ext.ComponentQuery.query('field[name=mongoId]')[0].setValue(records[0].data._id);",
@@ -103,6 +105,7 @@
                 "name": "select",
                 "scope": "me"
             },
+            "name": "onLenderIdcboSelect",
             "designerId": "241bc5f9-3016-4206-985b-24f728605a50"
         },
         {
@@ -119,6 +122,7 @@
                 "implHandler": [
                     "// calc updateDoc",
                     "var updateDoc = Ext.ComponentQuery.query('#lendersfrm')[0].getForm().getValues();",
+                    "debugger;",
                     "delete updateDoc.mongoIdLD;",
                     "delete updateDoc.reservePercentage;",
                     "delete updateDoc.lendersDealerId;",
@@ -160,6 +164,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onUpdatebtnClick",
             "designerId": "a325491c-05ab-4da9-81e2-3abcdd448b48"
         },
         {
@@ -180,6 +185,7 @@
                 "name": "afterrender",
                 "scope": "me"
             },
+            "name": "onLendersfrmAfterRender",
             "designerId": "7020d763-fea8-46ff-ba56-51fbe9d6ff61"
         },
         {
@@ -199,6 +205,7 @@
                 "name": "change",
                 "scope": "me"
             },
+            "name": "onStateFiltercboChange",
             "designerId": "2cfe1da0-78b2-435f-88bf-c8f182844ad1"
         },
         {
@@ -219,6 +226,7 @@
                 "name": "expand",
                 "scope": "me"
             },
+            "name": "onLenderIdcboExpand",
             "designerId": "3b5ebfd6-9838-4c50-95f1-3c59f4e47eef"
         },
         {
@@ -241,6 +249,7 @@
                     ""
                 ]
             },
+            "name": "getAllForms",
             "designerId": "74c92234-557c-4f16-af01-5a744da5bd45"
         },
         {
@@ -279,6 +288,7 @@
                     ""
                 ]
             },
+            "name": "getAllDocs",
             "designerId": "3660ddd3-5126-4a0f-8991-abb3bf7b7f05"
         },
         {
@@ -324,6 +334,7 @@
                     "});"
                 ]
             },
+            "name": "getDocById",
             "designerId": "478461b2-c98d-4d3c-9228-b4dfd27b9dc6"
         },
         {
@@ -369,6 +380,7 @@
                     "});"
                 ]
             },
+            "name": "getDocsByIds",
             "designerId": "c65eedb5-86c7-4311-996f-5db633996a52"
         },
         {
@@ -421,6 +433,7 @@
                     ""
                 ]
             },
+            "name": "getReservePercentageAndLendersDealerId",
             "designerId": "8daafdb0-a99c-4db0-a98d-efadbc6f0994"
         },
         {
@@ -463,6 +476,7 @@
                     "});"
                 ]
             },
+            "name": "insertDoc",
             "designerId": "f88b3fdc-fcaf-46f5-a00f-c10357032f5c"
         },
         {
@@ -520,6 +534,7 @@
                     "});"
                 ]
             },
+            "name": "upsertDocById",
             "designerId": "999cbdd4-26a7-401b-886d-6c458b185ca0"
         },
         {
@@ -564,6 +579,7 @@
                     "});"
                 ]
             },
+            "name": "upsertLenderRecord",
             "designerId": "61c8655f-a0c2-478e-8b85-7decccdc1724"
         },
         {
@@ -616,6 +632,7 @@
                     ""
                 ]
             },
+            "name": "upsertLenderDealerRecord",
             "designerId": "3c38ac0f-9baa-4b9e-b1cc-1687281dbb24"
         },
         {
@@ -641,6 +658,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onDeletebtnClick",
             "designerId": "cc87ec4d-707d-4e20-8ddd-4648f209e1d0"
         },
         {
@@ -676,6 +694,7 @@
                     "});"
                 ]
             },
+            "name": "deleteLenderRecordById",
             "designerId": "44639aaf-07e3-4e97-864d-1f1948228782"
         },
         {
@@ -739,6 +758,7 @@
                     ""
                 ]
             },
+            "name": "getLenderFormReqs",
             "designerId": "48245539-be12-44e6-92f5-5b44e86f2e99"
         },
         {
@@ -759,6 +779,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onRefreshFormsListbtnClick",
             "designerId": "65119053-6a40-43cd-9803-df6b6871d26d"
         },
         {
@@ -818,6 +839,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onSaveLenderReqsClick",
             "designerId": "94337192-f6bf-415a-995e-6e72ce68f6c2"
         },
         {
@@ -834,6 +856,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onSaveEntireLenderReqsbtnClick",
             "designerId": "182331b4-cf84-4173-bd79-4875d017fd26"
         },
         {
@@ -859,6 +882,7 @@
                     ""
                 ]
             },
+            "name": "getFormRequirementsFromFormsCollection",
             "designerId": "436f231e-df44-4c7f-8606-f26a246e8184"
         }
     ]

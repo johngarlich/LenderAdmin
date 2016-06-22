@@ -20,6 +20,7 @@
             "userConfig": {
                 "name": "formId"
             },
+            "name": "MyField40",
             "designerId": "3a858fa2-2aa4-486a-9832-e342500ab7e4"
         },
         {
@@ -32,6 +33,7 @@
             "userConfig": {
                 "name": "formType"
             },
+            "name": "MyField41",
             "designerId": "2c297413-f7af-410a-87be-d00c43b583a1"
         },
         {
@@ -44,6 +46,7 @@
             "userConfig": {
                 "name": "lenderId"
             },
+            "name": "MyField42",
             "designerId": "8231bcff-56a6-47b2-af6d-20400dadf879"
         },
         {
@@ -56,6 +59,7 @@
             "userConfig": {
                 "name": "templateGuid"
             },
+            "name": "MyField43",
             "designerId": "8a761446-cbc5-4249-a6c9-578fee464dae"
         },
         {
@@ -68,6 +72,7 @@
             "userConfig": {
                 "name": "publicName"
             },
+            "name": "MyField44",
             "designerId": "d28bda98-382d-44d4-a324-da4b6cf90c96"
         },
         {
@@ -80,6 +85,7 @@
             "userConfig": {
                 "name": "_id"
             },
+            "name": "MyField45",
             "designerId": "b4828220-0e7a-4195-a449-bd722453a2f9"
         },
         {
@@ -92,6 +98,7 @@
             "userConfig": {
                 "name": "states"
             },
+            "name": "MyField46",
             "designerId": "a3502651-1280-4d39-b992-5207100df897"
         }
     ]

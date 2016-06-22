@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "basePath": "/ext-4.2.2.1144",
+        "basePath": "../library/ext",
         "designer|userClassName": "Library",
         "theme": "MyClassicTheme"
     },

@@ -14,6 +14,7 @@
         "simple": {
             "pkgVersion": 1
         },
+        "compiledCss": "",
         "nameIndex": 1,
         "varData": {}
     }

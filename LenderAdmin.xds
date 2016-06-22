@@ -2,9 +2,9 @@
     "name": "LenderAdmin",
     "settings": {
         "cmd": {
-            "license": "custom",
-            "cmdVersion": "4.0.4.84",
-            "frameworkOverride": "/Users/johngarlich/bin/Sencha/Complete/1.0.5.1/ext-4.2.2.1144"
+            "cmdVersion": "5.1.3.61",
+            "license": "commercial",
+            "frameworkVersion": "4.2.1.883"
         },
         "canvasControls": {
             "viewportSize": {
@@ -15,7 +15,7 @@
             }
         },
         "urlPrefix": "http://localhost/LenderAdmin",
-        "exportPath": "",
+        "exportPath": "/Library/WebServer/Documents/LenderAdminPublish/",
         "spacesToIndent": 4,
         "sdkPath": "",
         "lineEnding": "LF",
@@ -24,12 +24,16 @@
         "buildShouldOverwriteIndex": true,
         "generateArchitectVersion": true,
         "displayfield-ExtBox1-1321-inputEl": "Not Installed",
-        "displayfield-ExtBox1-1371-inputEl": "Not Installed"
+        "displayfield-ExtBox1-1371-inputEl": "Not Installed",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1220-inputEl": "a new version of the framework is available"
     },
-    "xdsVersion": "3.0.4",
-    "xdsBuild": 1386,
+    "xdsVersion": "3.2.0",
+    "xdsBuild": 339,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000004,
+    "upgradeVersion": 310000000001,
     "framework": "ext42",
     "viewOrderMap": {
         "view": [

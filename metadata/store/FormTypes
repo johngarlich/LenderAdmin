@@ -23,6 +23,7 @@
             "userConfig": {
                 "url": "data/formTypes.json"
             },
+            "name": "MyAjaxProxy4",
             "designerId": "d4141726-ddac-409f-9b66-3b8c457606db",
             "cn": [
                 {
@@ -32,6 +33,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyJsonReader4",
                     "designerId": "08236730-6667-469e-8498-6aa124291a48"
                 }
             ]
@@ -46,6 +48,7 @@
             "userConfig": {
                 "property": "name"
             },
+            "name": "MySorter1",
             "designerId": "35d39625-3506-4443-90e2-c928fe664fc2"
         }
     ]

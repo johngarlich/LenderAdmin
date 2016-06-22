@@ -20,11 +20,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "bodyPadding": 10,
                 "itemId": "lendersfrm",
                 "layout|region": "center",
                 "title": "Lenders"
             },
+            "name": "MyForm",
             "designerId": "c51c00fd-6c45-44c1-a448-ecf3ecb3cec6",
             "cn": [
                 {
@@ -37,6 +39,7 @@
                     "userConfig": {
                         "dock": "top"
                     },
+                    "name": "MyToolbar",
                     "designerId": "232aa368-2593-471e-a0f6-8bba2bed41d7",
                     "cn": [
                         {
@@ -51,6 +54,7 @@
                                 "layout|flex": null,
                                 "text": "Save the ENTIRE LENDER REQUIREMENTS (after you have completed all of the sections)"
                             },
+                            "name": "MyButton",
                             "designerId": "8e9a12e9-9a9f-4140-a62d-ff02c09633be"
                         }
                     ]
@@ -65,6 +69,7 @@
                     "userConfig": {
                         "dock": "top"
                     },
+                    "name": "MyToolbar1",
                     "designerId": "8d6cf709-beae-4a87-9737-24ff99ca858f",
                     "cn": [
                         {
@@ -79,6 +84,7 @@
                                 "layout|flex": null,
                                 "text": "Clear fields to Add New Lender"
                             },
+                            "name": "MyButton1",
                             "designerId": "b4f568e6-674a-480f-848c-a48014b2a441"
                         },
                         {
@@ -93,6 +99,7 @@
                                 "layout|flex": null,
                                 "text": "Update this record"
                             },
+                            "name": "MyButton2",
                             "designerId": "becafe3d-6d50-4ebe-934d-6c7908a40119"
                         },
                         {
@@ -116,6 +123,7 @@
                                 ],
                                 "width": 129
                             },
+                            "name": "MyComboBox",
                             "configAlternates": {
                                 "store": "array"
                             },
@@ -133,6 +141,7 @@
                                 "layout|flex": null,
                                 "text": "Change State"
                             },
+                            "name": "MyButton3",
                             "designerId": "d1620396-9cdf-499f-87d6-b0b57d661c5d"
                         },
                         {
@@ -147,6 +156,7 @@
                                 "layout|flex": null,
                                 "text": "Delete this record"
                             },
+                            "name": "MyButton4",
                             "designerId": "c635e5b1-5e7e-452c-9879-c4626d488994"
                         }
                     ]
@@ -163,6 +173,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer",
                     "designerId": "e36eb9cb-7f30-415b-8eee-460033c725b5",
                     "cn": [
                         {
@@ -184,6 +195,7 @@
                                 "typeAheadDelay": 100,
                                 "width": 312
                             },
+                            "name": "MyComboBox1",
                             "designerId": "1497e50b-37c4-4968-8a9a-3c236e42cf77"
                         },
                         {
@@ -200,6 +212,7 @@
                                 "name": "name",
                                 "width": 299
                             },
+                            "name": "MyTextField",
                             "designerId": "b025879e-27af-4204-b268-f1116e951a73"
                         },
                         {
@@ -225,6 +238,7 @@
                                 ],
                                 "width": 134
                             },
+                            "name": "MyComboBox2",
                             "configAlternates": {
                                 "store": "array"
                             },
@@ -251,6 +265,7 @@
                                 ],
                                 "width": 191
                             },
+                            "name": "MyComboBox3",
                             "configAlternates": {
                                 "store": "array"
                             },
@@ -270,6 +285,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer1",
                     "designerId": "fd2203b7-b0b6-4f31-bd30-46d139ced42e",
                     "cn": [
                         {
@@ -286,6 +302,7 @@
                                 "name": "street",
                                 "width": 312
                             },
+                            "name": "MyTextField1",
                             "designerId": "4aad3f3c-9953-4924-af39-0a0037310414"
                         },
                         {
@@ -303,6 +320,7 @@
                                 "name": "street2",
                                 "width": 245
                             },
+                            "name": "MyTextField2",
                             "designerId": "5e967ff5-930b-4709-baa1-da69009d8637"
                         },
                         {
@@ -320,6 +338,7 @@
                                 "readOnly": true,
                                 "width": 393
                             },
+                            "name": "MyTextField3",
                             "designerId": "ecaba78b-5461-4788-a855-941e391fa01c"
                         }
                     ]
@@ -336,6 +355,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer2",
                     "designerId": "3736f3d7-30b4-4e33-8951-f0fb25ca70c8",
                     "cn": [
                         {
@@ -352,6 +372,7 @@
                                 "name": "city",
                                 "width": 312
                             },
+                            "name": "MyTextField4",
                             "designerId": "fa1ba6eb-ff69-4206-9a3d-592745324f4a"
                         },
                         {
@@ -368,6 +389,7 @@
                                 "name": "state",
                                 "width": 134
                             },
+                            "name": "MyComboBox4",
                             "designerId": "88949c5d-f8a8-4e85-baca-940ad4203c1d"
                         },
                         {
@@ -385,6 +407,7 @@
                                 "name": "zipcode",
                                 "width": 157
                             },
+                            "name": "MyTextField5",
                             "designerId": "14ab1fee-7a60-4390-b6af-5109edb83b65"
                         },
                         {
@@ -401,6 +424,7 @@
                                 "name": "phone",
                                 "width": 211
                             },
+                            "name": "MyTextField6",
                             "designerId": "d03af25a-3682-4f59-807a-5915d776d403"
                         }
                     ]
@@ -418,6 +442,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer3",
                     "designerId": "4441dd30-f1d1-4a01-9ab2-8abcc4c8fdb3",
                     "cn": [
                         {
@@ -434,6 +459,7 @@
                                 "name": "csz",
                                 "width": 311
                             },
+                            "name": "MyTextField7",
                             "designerId": "537b05bc-1836-4617-a979-0d3354cc0e65"
                         },
                         {
@@ -450,7 +476,23 @@
                                 "name": "mongoId",
                                 "width": 311
                             },
+                            "name": "MyTextField8",
                             "designerId": "8c7bf9ef-5c46-4a86-b2e9-37b7918b8f59"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Fin",
+                                "layout|flex": 1,
+                                "name": "fin"
+                            },
+                            "name": "MyTextField16",
+                            "designerId": "0d73b6a6-929e-4d2d-a49f-a2befa4a382d"
                         }
                     ]
                 },
@@ -467,6 +509,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer4",
                     "designerId": "60f6ec0e-c427-4263-b348-dc37f1e9dca3",
                     "cn": [
                         {
@@ -492,6 +535,7 @@
                                 ],
                                 "width": 311
                             },
+                            "name": "MyComboBox5",
                             "configAlternates": {
                                 "store": "array"
                             },
@@ -510,6 +554,7 @@
                                 "name": "lendersDealerId",
                                 "width": 311
                             },
+                            "name": "MyTextField9",
                             "designerId": "d5e07cbf-2d03-45b6-99f3-cabfe055239a"
                         },
                         {
@@ -526,6 +571,7 @@
                                 "name": "mongoIdLD",
                                 "width": 311
                             },
+                            "name": "MyTextField10",
                             "designerId": "705d3924-1ae9-4931-aba4-5a992d497038"
                         }
                     ]
@@ -542,6 +588,7 @@
                         "height": 36,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer5",
                     "designerId": "5a18014b-7858-4da6-b29b-4c6da423dde1",
                     "cn": [
                         {
@@ -562,6 +609,7 @@
                                 "queryMode": "local",
                                 "store": "DealerIds"
                             },
+                            "name": "MyComboBox6",
                             "designerId": "02355b66-45c3-4c10-bfc5-7f62a09f2e9f"
                         },
                         {
@@ -576,6 +624,7 @@
                                 "layout|flex": null,
                                 "text": "Add dealerId to this lender"
                             },
+                            "name": "MyButton5",
                             "designerId": "eb492f61-21cd-488f-8f13-904eecaec4b3"
                         }
                     ]
@@ -592,6 +641,7 @@
                         "height": 600,
                         "layout": "hbox"
                     },
+                    "name": "MyContainer6",
                     "designerId": "f7cedaf8-e469-4b81-afd0-441e78224686",
                     "cn": [
                         {
@@ -607,6 +657,7 @@
                                 "title": "Dealers assigned to this lender in this lenderState",
                                 "width": 181
                             },
+                            "name": "MyGridPanel",
                             "designerId": "568b032e-a90b-4a41-8195-2dd0654d99e4",
                             "cn": [
                                 {
@@ -616,6 +667,7 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "name": "MyGridView",
                                     "designerId": "2ab8aa0d-cb99-4c74-a9d1-a6f5c0c2cf94"
                                 },
                                 {
@@ -630,6 +682,7 @@
                                         "text": "DealerId",
                                         "width": 138
                                     },
+                                    "name": "MyColumn",
                                     "designerId": "59770d3f-37a7-4817-8796-25e0fab3defa"
                                 },
                                 {
@@ -642,6 +695,7 @@
                                     "userConfig": {
                                         "dock": "top"
                                     },
+                                    "name": "MyToolbar2",
                                     "designerId": "fc135b90-948c-41fe-9119-0e64b32955df",
                                     "cn": [
                                         {
@@ -656,6 +710,7 @@
                                                 "layout|flex": null,
                                                 "text": "Remove checked Dealers"
                                             },
+                                            "name": "MyButton6",
                                             "designerId": "526cc791-14b2-47a3-ad45-960197a2ab11"
                                         }
                                     ]
@@ -667,6 +722,7 @@
                                         "type": "object"
                                     },
                                     "codeClass": "Ext.selection.CheckboxModel",
+                                    "name": "MyCheckboxSelectionModel",
                                     "designerId": "02642a0b-c8cf-4f5e-8cdd-d017c99be5e3"
                                 }
                             ]
@@ -683,6 +739,7 @@
                                 "layout|flex": 1,
                                 "title": "Required Core Forms for this lender"
                             },
+                            "name": "MyForm1",
                             "designerId": "5cc73c44-3717-43e1-a037-c5a07be53e67",
                             "cn": [
                                 {
@@ -695,6 +752,7 @@
                                     "userConfig": {
                                         "dock": "top"
                                     },
+                                    "name": "MyToolbar3",
                                     "designerId": "445b9e0e-2402-4785-8c0c-fba5ca8d1d64",
                                     "cn": [
                                         {
@@ -709,6 +767,7 @@
                                                 "layout|flex": null,
                                                 "text": "Refresh Forms List"
                                             },
+                                            "name": "MyButton7",
                                             "designerId": "6aa1f6aa-76f3-417b-906d-8d14d284b059"
                                         }
                                     ]
@@ -726,6 +785,7 @@
                                         "layout": "hbox",
                                         "margin": "0 5 0 5"
                                     },
+                                    "name": "MyContainer7",
                                     "designerId": "63eb91e7-b63c-4423-920b-fedfafdac0cd",
                                     "cn": [
                                         {
@@ -745,6 +805,7 @@
                                                 "queryMode": "local",
                                                 "store": "FormTypes"
                                             },
+                                            "name": "MyComboBox7",
                                             "designerId": "a6b57e32-2235-4994-a1bb-cf4c88f6ef8f"
                                         }
                                     ]
@@ -762,6 +823,7 @@
                                         "store": "Forms",
                                         "title": "Forms List"
                                     },
+                                    "name": "MyGridPanel1",
                                     "designerId": "090f3364-848a-4872-9068-92325faed74e",
                                     "cn": [
                                         {
@@ -771,6 +833,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "MyGridView1",
                                             "designerId": "0848e7f5-5ea1-4c71-af81-f39ff2f0c751"
                                         },
                                         {
@@ -784,6 +847,7 @@
                                                 "dataIndex": "formCategory",
                                                 "text": "FormCategory"
                                             },
+                                            "name": "MyColumn1",
                                             "designerId": "1e95a0d0-8d5c-46e8-97c1-88c7a67fa701"
                                         },
                                         {
@@ -797,6 +861,7 @@
                                                 "dataIndex": "formType",
                                                 "text": "FormType"
                                             },
+                                            "name": "MyColumn2",
                                             "designerId": "782be4f7-92ee-4e58-952b-b80cfe880848"
                                         },
                                         {
@@ -811,6 +876,7 @@
                                                 "text": "FormId",
                                                 "width": 187
                                             },
+                                            "name": "MyColumn3",
                                             "designerId": "98254916-1c78-4ca1-80f1-cac9811828ea"
                                         },
                                         {
@@ -825,6 +891,7 @@
                                                 "text": "PublicName",
                                                 "width": 227
                                             },
+                                            "name": "MyColumn4",
                                             "designerId": "48f32cba-86e4-4673-ba5e-335720a7fd65"
                                         },
                                         {
@@ -839,6 +906,7 @@
                                                 "text": "_id",
                                                 "width": 172
                                             },
+                                            "name": "MyColumn5",
                                             "designerId": "047e9a76-e819-400d-b6a0-718c93ecee5f"
                                         }
                                     ]
@@ -856,6 +924,7 @@
                                         "layout": "fit",
                                         "title": "Core Form Requirements"
                                     },
+                                    "name": "MyForm2",
                                     "designerId": "6014ef85-bfea-4ee9-8cda-559049fd859c",
                                     "cn": [
                                         {
@@ -871,6 +940,7 @@
                                                 "store": "FormRequirements",
                                                 "title": null
                                             },
+                                            "name": "MyGridPanel2",
                                             "designerId": "faf86812-9fc4-47b2-b3aa-cb9c2e01899e",
                                             "cn": [
                                                 {
@@ -883,6 +953,7 @@
                                                     "userConfig": {
                                                         "dock": "top"
                                                     },
+                                                    "name": "MyToolbar4",
                                                     "designerId": "55dcf912-9981-4b91-ba47-4d5c02c8d342",
                                                     "cn": [
                                                         {
@@ -897,6 +968,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Remove Selected Item from Core Requirements"
                                                             },
+                                                            "name": "MyButton8",
                                                             "designerId": "b3732c00-3fe7-42a7-9455-2f5133efff6c"
                                                         },
                                                         {
@@ -910,6 +982,7 @@
                                                                 "layout|flex": null,
                                                                 "width": 200
                                                             },
+                                                            "name": "MySpacer",
                                                             "designerId": "9387211d-61e0-486b-876c-cabbe47c9067"
                                                         },
                                                         {
@@ -924,6 +997,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Save Lender Requirements"
                                                             },
+                                                            "name": "MyButton9",
                                                             "designerId": "140f5b39-5bae-4745-8173-00cc70be1e51"
                                                         }
                                                     ]
@@ -935,6 +1009,7 @@
                                                         "type": "object"
                                                     },
                                                     "codeClass": null,
+                                                    "name": "MyGridView2",
                                                     "designerId": "c38e5af6-d8f2-47e1-89d7-65c612da6baa"
                                                 },
                                                 {
@@ -944,6 +1019,7 @@
                                                         "type": "object"
                                                     },
                                                     "codeClass": "Ext.selection.CheckboxModel",
+                                                    "name": "MyCheckboxSelectionModel1",
                                                     "designerId": "7cc3af72-f320-44e8-ad58-8bd957ef0957"
                                                 },
                                                 {
@@ -956,6 +1032,7 @@
                                                     "userConfig": {
                                                         "dock": "top"
                                                     },
+                                                    "name": "MyToolbar5",
                                                     "designerId": "25ce9536-7c54-469d-a598-7313861aab98",
                                                     "cn": [
                                                         {
@@ -974,6 +1051,7 @@
                                                                 "name": "lenderIdReq",
                                                                 "width": 282
                                                             },
+                                                            "name": "MyTextField11",
                                                             "designerId": "57d18ea0-3982-419b-9955-41eb1ee7bbff"
                                                         },
                                                         {
@@ -992,6 +1070,7 @@
                                                                 "name": "dealerIdReq",
                                                                 "width": 226
                                                             },
+                                                            "name": "MyTextField12",
                                                             "designerId": "f7dfd552-ca6c-435f-b5bd-e058a4228054"
                                                         },
                                                         {
@@ -1010,6 +1089,7 @@
                                                                 "name": "lenderStateReq",
                                                                 "width": 106
                                                             },
+                                                            "name": "MyTextField13",
                                                             "designerId": "282e3e35-d204-47b5-9e6d-db3032cf88e2"
                                                         },
                                                         {
@@ -1028,6 +1108,7 @@
                                                                 "name": "mongoIdReq",
                                                                 "width": 258
                                                             },
+                                                            "name": "MyTextField14",
                                                             "designerId": "dd7bd838-3e5a-42dd-ad9c-b8d174eb14f1"
                                                         },
                                                         {
@@ -1046,6 +1127,7 @@
                                                                 "name": "financeTypeReq",
                                                                 "width": 158
                                                             },
+                                                            "name": "MyTextField15",
                                                             "designerId": "3bac5899-ed39-4eea-87f3-a8b95fca63b5"
                                                         }
                                                     ]
@@ -1062,6 +1144,7 @@
                                                         "text": "FormCategory",
                                                         "width": 113
                                                     },
+                                                    "name": "MyColumn6",
                                                     "designerId": "de36dcfb-1509-4d41-a264-c415db99eda6"
                                                 },
                                                 {
@@ -1076,6 +1159,7 @@
                                                         "text": "FormType",
                                                         "width": 120
                                                     },
+                                                    "name": "MyColumn7",
                                                     "designerId": "58199c27-cc68-4795-a496-7a420534bb66"
                                                 },
                                                 {
@@ -1090,6 +1174,7 @@
                                                         "text": "FormId",
                                                         "width": 145
                                                     },
+                                                    "name": "MyColumn8",
                                                     "designerId": "9db4dfe4-3692-44f6-a9ce-b12014aa2d97"
                                                 },
                                                 {
@@ -1104,6 +1189,7 @@
                                                         "text": "PublicName",
                                                         "width": 220
                                                     },
+                                                    "name": "MyColumn9",
                                                     "designerId": "8a29985b-df09-4517-9896-f14ee68a2ca0"
                                                 },
                                                 {
@@ -1118,6 +1204,7 @@
                                                         "text": "_id",
                                                         "width": 266
                                                     },
+                                                    "name": "MyColumn10",
                                                     "designerId": "abae2835-18f4-4b08-bb6d-a2216636bd8c"
                                                 }
                                             ]

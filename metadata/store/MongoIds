@@ -22,6 +22,7 @@
             "userConfig": {
                 "url": "http://localhost:3000/collection/getDocs"
             },
+            "name": "MyAjaxProxy7",
             "designerId": "e1521f95-83ab-47b1-b979-cccf8499ef9a",
             "cn": [
                 {
@@ -31,6 +32,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyJsonReader7",
                     "designerId": "35421fe1-5c25-4b89-8188-5c8b8c828637"
                 }
             ]

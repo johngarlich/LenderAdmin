@@ -20,6 +20,7 @@
             "userConfig": {
                 "name": "lenderId"
             },
+            "name": "MyField34",
             "designerId": "ed7a35f8-343b-442f-afb1-8603bb1f7a24"
         },
         {
@@ -32,6 +33,7 @@
             "userConfig": {
                 "name": "dealerId"
             },
+            "name": "MyField35",
             "designerId": "9d8b86d0-cfa0-4670-a628-3b06c7835228"
         },
         {
@@ -44,6 +46,7 @@
             "userConfig": {
                 "name": "lendersDealerId"
             },
+            "name": "MyField36",
             "designerId": "413e5a3e-d1c9-49cc-9ca3-233c55e48edf"
         },
         {
@@ -56,6 +59,7 @@
             "userConfig": {
                 "name": "reservePercentage"
             },
+            "name": "MyField37",
             "designerId": "0275ce09-6c76-455f-ac65-e8576f0d4747"
         },
         {
@@ -68,6 +72,7 @@
             "userConfig": {
                 "name": "financeType"
             },
+            "name": "MyField38",
             "designerId": "eeee81fd-1857-47ee-9287-c13c62d0c272"
         },
         {
@@ -80,6 +85,7 @@
             "userConfig": {
                 "name": "formMongoId"
             },
+            "name": "MyField39",
             "designerId": "0eefa1b8-685c-44fc-a8ad-1ded29a7d632"
         }
     ]

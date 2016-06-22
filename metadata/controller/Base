@@ -30,6 +30,7 @@
                 "name": "blur",
                 "scope": "me"
             },
+            "name": "onStreet2txtBlur",
             "designerId": "bfb9c511-6901-494f-8377-ed9af72056fb"
         },
         {
@@ -53,6 +54,7 @@
                 "name": "blur",
                 "scope": "me"
             },
+            "name": "onZipcodetxtBlur",
             "designerId": "4ee7511e-5d58-4b99-8627-a32fed982b5d"
         },
         {
@@ -69,14 +71,18 @@
                 "fn": "init",
                 "implHandler": [
                     "// server",
-                    "",
+                    "/*",
                     "nodeJsService    =      \"http://172.31.14.38:2200/\";",
                     "socket             = io(\"http://172.31.14.38:2230\");",
-                    "",
-                    "/*",
-                    "nodeJsService    =      \"http://52.27.221.144:2200/\";",
-                    "socket             = io(\"http://52.27.221.144:2230\");",
                     "*/",
+                    "/*",
+                    "nodeJsService    =      \"http://52.27.221.144:3100/\";",
+                    "socket             = io(\"http://52.27.221.144:3130\");",
+                    "*/",
+                    "nodeJsService    =      \"http://portal.demo.dod.local/\";",
+                    "socket           =   io(\"http://portal.demo.dod.local:3130\");",
+                    "",
+                    "",
                     "// You have several files.",
                     "// There is a lenders file",
                     "// There is a lenderDealer file that has the reserver percentage",
@@ -92,6 +98,7 @@
                     ""
                 ]
             },
+            "name": "init",
             "designerId": "19ee1d78-2c0e-47c7-bf1c-dd9a389e26ec"
         },
         {
@@ -124,6 +131,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onClearFieldsbtnClick",
             "designerId": "dabbf172-98cb-4c9e-b881-ce66fd67c67e"
         },
         {
@@ -150,6 +158,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onChangeStatebtnClick",
             "designerId": "842941ab-2d85-4714-a31c-baac66fc21b2"
         },
         {
@@ -172,6 +181,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onAddDealerIdToDealerIdsGridClick",
             "designerId": "574b97b1-1061-4ef7-aa3a-86bf8d82d07e"
         },
         {
@@ -199,6 +209,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onRemoveDealerFromGridbtnClick",
             "designerId": "78f83f1e-0dfa-467e-be55-438102e260f0"
         },
         {
@@ -223,6 +234,7 @@
                 "name": "select",
                 "scope": "me"
             },
+            "name": "onFormTypeFiltercboSelect",
             "designerId": "83466093-0627-4964-9a72-d621037ebf33"
         },
         {
@@ -244,6 +256,7 @@
                 "name": "select",
                 "scope": "me"
             },
+            "name": "onFormsListgrdSelect",
             "designerId": "39fe466c-af03-43dc-b840-812289f09119"
         },
         {
@@ -267,6 +280,7 @@
                 "name": "click",
                 "scope": "me"
             },
+            "name": "onRemoveRequirementbtnClick",
             "designerId": "ca6d5429-89dd-4bc1-a6b0-246a3aaf8ad3"
         }
     ]
