@@ -498,11 +498,11 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
     getLenderFormReqs: function() {
         var collectionName = "coreLenderForms";
 
-        var lenderState    = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();
+        //var lenderState    = Ext.ComponentQuery.query('field[name=lenderState]')[0].getValue();
         var lenderId       = Ext.ComponentQuery.query('field[name=lenderId]')[0].getValue();
         var dealerId       = Ext.ComponentQuery.query('field[name=dealerIds]')[0].getValue();
         var financeType    = Ext.ComponentQuery.query('field[name=financeType]')[0].getValue();
-        var query          = {lenderState:lenderState, lenderId:lenderId, dealerId:dealerId, financeType:financeType};
+        var query          = {lenderId:lenderId, dealerId:dealerId, financeType:financeType};
         var store          = Ext.getStore('FormRequirements');
         var coreReqs       = [];
         var coreReq        = {};

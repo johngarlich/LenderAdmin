@@ -33,6 +33,9 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
                     "name": "MyJsonReader4",
                     "designerId": "08236730-6667-469e-8498-6aa124291a48"
                 }

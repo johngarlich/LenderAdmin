@@ -34,7 +34,8 @@ Ext.define('LenderAdmin.store.FormTypes', {
                 type: 'ajax',
                 url: 'data/formTypes.json',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    root: 'data'
                 }
             },
             sorters: {
