@@ -336,7 +336,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                         },
                         {
                             xtype: 'container',
-                            height: 600,
+                            height: 796,
                             layout: {
                                 type: 'hbox',
                                 align: 'stretch'
@@ -376,6 +376,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                 {
                                     xtype: 'form',
                                     flex: 1,
+                                    height: 600,
                                     bodyPadding: 10,
                                     title: 'Required Core Forms for this lender',
                                     dockedItems: [
@@ -418,7 +419,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                             xtype: 'gridpanel',
                                             height: 215,
                                             itemId: 'formsListgrd',
-                                            title: 'Forms List',
+                                            title: 'Forms List -- click on a form  in the grid and it will add it to the Lender\'s Core Form Requirements.  ',
                                             store: 'Forms',
                                             columns: [
                                                 {
@@ -453,6 +454,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                         },
                                         {
                                             xtype: 'form',
+                                            height: 466,
                                             itemId: 'coreReqsfrm',
                                             layout: 'fit',
                                             title: 'Core Form Requirements',
@@ -461,6 +463,7 @@ Ext.define('LenderAdmin.view.MyViewport', {
                                                     xtype: 'gridpanel',
                                                     itemId: 'requirementsgrd',
                                                     margin: '5 0 0 0',
+                                                    autoScroll: true,
                                                     store: 'FormRequirements',
                                                     dockedItems: [
                                                         {

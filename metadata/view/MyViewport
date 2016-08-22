@@ -638,7 +638,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "container|align": "stretch",
-                        "height": 600,
+                        "height": 796,
                         "layout": "hbox"
                     },
                     "name": "MyContainer6",
@@ -736,6 +736,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "bodyPadding": 10,
+                                "height": 600,
                                 "layout|flex": 1,
                                 "title": "Required Core Forms for this lender"
                             },
@@ -821,7 +822,7 @@
                                         "height": 215,
                                         "itemId": "formsListgrd",
                                         "store": "Forms",
-                                        "title": "Forms List"
+                                        "title": "Forms List -- click on a form  in the grid and it will add it to the Lender's Core Form Requirements.  "
                                     },
                                     "name": "MyGridPanel1",
                                     "designerId": "090f3364-848a-4872-9068-92325faed74e",
@@ -920,6 +921,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "bodyPadding": null,
+                                        "height": 466,
                                         "itemId": "coreReqsfrm",
                                         "layout": "fit",
                                         "title": "Core Form Requirements"
@@ -935,6 +937,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "autoScroll": true,
                                                 "itemId": "requirementsgrd",
                                                 "margin": "5 0 0 0",
                                                 "store": "FormRequirements",
