@@ -1,0 +1,32 @@
+checkout:
+  post:
+    - wget https://s3.amazonaws.com/doddeploymentfiles/cmd-5.1.3.61-linux-32.zip
+    - wget https://s3.amazonaws.com/doddeploymentfiles/ext-4.2.5.zip
+    - unzip cmd-5.1.3.61-linux-32.zip
+    - chmod +x SenchaCmd-5.1.3.61-linux.run 
+    - ./SenchaCmd-5.1.3.61-linux.run --mode unattended
+    - unzip ext-4.2.5.zip
+    - /home/ubuntu/bin/Sencha/Cmd/5.1.3.61/sencha generate workspace ./
+    - /home/ubuntu/bin/Sencha/Cmd/5.1.3.61/sencha -sdk ./ext-4.2.5.1763 generate app MyApp ./ || echo "pass"
+    - git checkout app.js app.json index.html
+    - echo 'skip.slice=1' >> ./.sencha/app/sencha.cfg
+    - cp -R packages app/
+    - cd app && /home/ubuntu/bin/Sencha/Cmd/5.1.3.61/sencha app build production
+    - cd app && /home/ubuntu/bin/Sencha/Cmd/5.1.3.61/sencha app build testing
+    - cp -R data build/production/MyApp/data/
+    - cp -R data build/testing/MyApp/data/
+    - mkdir -p $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME
+    - mkdir -p $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME
+    - cp -R build/production/MyApp $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME
+    - cp -R build/testing/MyApp $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME
+    - echo 'Build - ' $CIRCLE_BUILD_NUM > $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - echo 'SHA1 - ' $CIRCLE_SHA1 >> $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - echo 'Compressed' >> $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - echo 'Build - ' $CIRCLE_BUILD_NUM > $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - echo 'SHA1 - ' $CIRCLE_SHA1 >> $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - echo 'Uncompressed' >> $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME/MyApp/version.txt
+    - cd $CIRCLE_ARTIFACTS/compressed/$CIRCLE_PROJECT_REPONAME/MyApp && zip -r $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME.zip *
+    - cd $CIRCLE_ARTIFACTS/uncompressed/$CIRCLE_PROJECT_REPONAME/MyApp && zip -r $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME-uncompressed.zip *
+test:
+  override:
+    - echo "success"
