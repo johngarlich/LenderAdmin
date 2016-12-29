@@ -19,7 +19,6 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
     onLenderIdcboSelect: function(combo, records, eOpts) {
 
         var form = Ext.ComponentQuery.query('#lendersfrm')[0];
-        debugger;
         form.getForm().setValues(records[0].data);
         // you have to set the _id field to mongoId
         Ext.ComponentQuery.query('field[name=mongoId]')[0].setValue(records[0].data._id);
@@ -60,7 +59,6 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
     onUpdatebtnClick: function(button, e, eOpts) {
         // calc updateDoc
         var updateDoc = Ext.ComponentQuery.query('#lendersfrm')[0].getForm().getValues();
-        debugger;
         delete updateDoc.mongoIdLD;
         delete updateDoc.reservePercentage;
         delete updateDoc.lendersDealerId;
@@ -274,7 +272,6 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         Ext.Ajax.request({
             url: nodeJsService + "collection/getDocById",
             success: function(response,err){
-                debugger;
                 if (JSON.parse(response.responseText).error){
                     alert("did not get the document from " + collectionName);
 
@@ -508,7 +505,6 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var coreReq        = {};
         store.removeAll();
         scope = this;
-        debugger;
         Ext.Ajax.request({
             url: nodeJsService + "collection/getDocs",
             success: function(response,err){
@@ -552,7 +548,6 @@ Ext.define('LenderAdmin.controller.MongoCalls', {
         var store = Ext.getStore("FormRequirements");
         var me = this;
         Ext.Array.each(mongoIds,function(item,index,self){
-            debugger;
            me.getDocById(collectionName,item,store);
         });
 
