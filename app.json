@@ -1,6 +1,8 @@
 {
-   "name": "LenderAdmin",
-   "requires": [],
-   "id": "e63ac5fc-8e08-4546-b23e-537111af20c0",
-   "resources": []
+    "name": "LenderAdmin",
+
+    "requires": [
+    ],
+
+    "id": "2aa24ffe-a7f9-49e2-bcab-e37dd22d6527"
 }
