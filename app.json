@@ -1,8 +1,7 @@
 {
-    "name": "LenderAdmin",
-
-    "requires": [
-    ],
-
-    "id": "2aa24ffe-a7f9-49e2-bcab-e37dd22d6527"
+   "name": "LenderAdmin",
+   "requires": [],
+   "id": "2aa24ffe-a7f9-49e2-bcab-e37dd22d6527",
+   "theme": "ext-theme-classic",
+   "resources": []
 }
